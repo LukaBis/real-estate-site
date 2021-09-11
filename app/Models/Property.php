@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use App\Models\PropertyImage;
 
 class Property extends Model
 {
@@ -15,4 +16,9 @@ class Property extends Model
     public $translatedAttributes = ['description'];
     // protected $fillable = [];
     protected $guarded = [];
+
+    public function images()
+    {
+        return $this->hasMany(PropertyImage::class);
+    }
 }

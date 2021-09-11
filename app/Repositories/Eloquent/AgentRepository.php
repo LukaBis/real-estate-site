@@ -22,4 +22,12 @@ class AgentRepository extends BaseRepository implements AgentRepositoryInterface
         $this->model = $model;
     }
 
+    public function randomId(): int
+    {
+        $allAgentIds = $this->model->get(['id']);
+        $numberOfAgents = $allAgentIds->count();
+
+        return $allAgentIds[rand(1, $numberOfAgents - 1)]->id;
+    }
+
 }
