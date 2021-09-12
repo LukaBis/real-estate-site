@@ -28,5 +28,14 @@
   "Area": "Površina",
   "Beds": "Kreveti",
   "Baths": "Kupaone",
-  "Garages": "Garaže"
+  "Garages": "Garaže",
+
+  "Search Property": "Pretraži smještaje",
+  "Keyword": "Ključna riječ",
+  "Type": "Tip",
+  "City": "Grad",
+  "Bedrooms": "Sobe",
+  "Garages": "Garaže",
+  "Bathrooms": "Kupaone",
+  "Min Price": "Najmanja cijena"
 }

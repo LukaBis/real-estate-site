@@ -29,8 +29,9 @@
             {{ __('Languages') }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="property-single.html">English</a>
-            <a class="dropdown-item" href="blog-single.html">Italian</a>
+            @foreach ($languages as $language)
+                <a class="dropdown-item" href="#">{{ $language->name }}</a>
+            @endforeach
           </div>
         </li>
         <!-- <li class="nav-item dropdown">

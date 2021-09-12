@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LanguageSeeder::class,
             AgentSeeder::class,
+            AmenitySeeder::class,
             PropertySeeder::class
         ]);
     }

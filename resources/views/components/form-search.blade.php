@@ -1,7 +1,7 @@
 <!--/ Form Search Star /-->
 <div class="box-collapse">
   <div class="title-box-d">
-    <h3 class="title-d">Search Property</h3>
+    <h3 class="title-d">{{ __('Search Property') }}</h3>
   </div>
   <span class="close-box-collapse right-boxed ion-ios-close"></span>
   <div class="box-collapse-wrap form">
@@ -9,13 +9,13 @@
       <div class="row">
         <div class="col-md-12 mb-2">
           <div class="form-group">
-            <label for="Type">Keyword</label>
-            <input type="text" class="form-control form-control-lg form-control-a" placeholder="Keyword">
+            <label for="Type">{{ __('Keyword') }}</label>
+            <input type="text" class="form-control form-control-lg form-control-a" placeholder="{{ __('Keyword') }}">
           </div>
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="Type">Type</label>
+            <label for="Type">{{ __('Type') }}</label>
             <select class="form-control form-control-lg form-control-a" id="Type">
               <option>All Type</option>
               <option>For Rent</option>
@@ -26,7 +26,7 @@
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="city">City</label>
+            <label for="city">{{ __('City') }}</label>
             <select class="form-control form-control-lg form-control-a" id="city">
               <option>All City</option>
               <option>Alabama</option>
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="bedrooms">Bedrooms</label>
+            <label for="bedrooms">{{ __('Bedrooms') }}</label>
             <select class="form-control form-control-lg form-control-a" id="bedrooms">
               <option>Any</option>
               <option>01</option>
@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="garages">Garages</label>
+            <label for="garages">{{ __('Garages') }}</label>
             <select class="form-control form-control-lg form-control-a" id="garages">
               <option>Any</option>
               <option>01</option>
@@ -61,7 +61,7 @@
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="bathrooms">Bathrooms</label>
+            <label for="bathrooms">{{ __('Bathrooms') }}</label>
             <select class="form-control form-control-lg form-control-a" id="bathrooms">
               <option>Any</option>
               <option>01</option>
@@ -72,7 +72,7 @@
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="price">Min Price</label>
+            <label for="price">{{ __('Min Price') }}</label>
             <select class="form-control form-control-lg form-control-a" id="price">
               <option>Unlimite</option>
               <option>$50,000</option>
@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class="col-md-12">
-          <button type="submit" class="btn btn-b">Search Property</button>
+          <button type="submit" class="btn btn-b">{{ __('Search Property') }}</button>
         </div>
       </div>
     </form>

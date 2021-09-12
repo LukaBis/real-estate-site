@@ -27,5 +27,14 @@
   "Area": "Area",
   "Beds": "Beds",
   "Baths": "Baths",
-  "Garages": "Garages"
+  "Garages": "Garages",
+
+  "Search Property": "Search Property",
+  "Keyword": "Keyword",
+  "Type": "Type",
+  "City": "City",
+  "Bedrooms": "Bedrooms",
+  "Garages": "Garages",
+  "Bathrooms": "Bathrooms",
+  "Min Price": "Min Price"
 }

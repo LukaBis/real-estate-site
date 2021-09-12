@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Helpers\RandomAgentId;
 use App\Helpers\RandomPropertyTranslation;
 use App\Models\PropertyTranslation;
+use App\Models\AmenityProperty;
+use App\Models\Amenity;
 
 class PropertyFactory extends Factory
 {
@@ -25,6 +27,8 @@ class PropertyFactory extends Factory
     public function configure()
     {
         return $this->afterCreating(function (Property $property) {
+
+          // adding translation
           $property_translations = RandomPropertyTranslation::translation();
 
           foreach ($property_translations as $locale => $description) {
@@ -33,6 +37,22 @@ class PropertyFactory extends Factory
                 "locale" => $locale,
                 "description" => $description
               ]);
+          }
+
+          // adding amenities for this property
+          $numberOfAmenitiesPerProperty = 9;
+
+          $allAmenitiesIds = array_column(Amenity::select('id')->get()->toArray(),'id');
+
+          // picking some_number of random Amenity ids
+          // this returns random keys of $allAmenitiesIds array
+          $random_keys = array_rand($allAmenitiesIds, $numberOfAmenitiesPerProperty);
+
+          for ($i = 0; $i < $numberOfAmenitiesPerProperty; $i++) {
+            AmenityProperty::create([
+              'property_id' => $property->id,
+              'amenity_id' => $allAmenitiesIds[$random_keys[$i]]
+            ]);
           }
 
         });

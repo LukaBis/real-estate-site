@@ -10,4 +10,9 @@ class LanguageTranslation extends Model
     use HasFactory;
 
     protected $table = 'language_translations';
+
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
 }

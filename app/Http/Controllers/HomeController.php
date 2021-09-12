@@ -22,7 +22,10 @@ class HomeController extends Controller
 
     public function homePage()
     {
-        // return response()->json($this->languageRepository->all(), 200);
-        return view('home');
+        $languages = $this->languageRepository->all();
+
+        return view('home', [
+          'languages' => $languages
+        ]);
     }
 }
