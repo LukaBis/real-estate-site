@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'homePage']);
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
+
+Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
+    Route::get('/', [HomeController::class, 'homePage']);
+});

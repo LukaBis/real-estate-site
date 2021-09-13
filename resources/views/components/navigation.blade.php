@@ -30,7 +30,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             @foreach ($languages as $language)
-                <a class="dropdown-item" href="#">{{ $language->name }}</a>
+                <a class="dropdown-item" href="/{{ $language->iso }}">{{ $language->name }}</a>
             @endforeach
           </div>
         </li>

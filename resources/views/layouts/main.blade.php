@@ -27,11 +27,9 @@
 </head>
 <body>
 
-@include('components.navigation')
-
-@yield('content')
-
-@include('components.footer')
+  @include('components.navigation')
+  @yield('content')
+  @include('components.footer')
 
 </body>
 </html>
