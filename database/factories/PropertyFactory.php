@@ -9,6 +9,7 @@ use App\Helpers\RandomPropertyTranslation;
 use App\Models\PropertyTranslation;
 use App\Models\AmenityProperty;
 use App\Models\Amenity;
+use App\Helpers\RandomPropertyVerticalImage;
 
 class PropertyFactory extends Factory
 {
@@ -77,7 +78,8 @@ class PropertyFactory extends Factory
             'baths' => rand(1, 3),
             'garage' => 1,
             "rent" => rand(700, 3500),
-            "agent_id" => RandomAgentId::agent()
+            "agent_id" => RandomAgentId::agent(),
+            'vertical_image' => RandomPropertyVerticalImage::image()
         ];
     }
 }

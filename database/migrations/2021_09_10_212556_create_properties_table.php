@@ -26,6 +26,7 @@ class CreatePropertiesTable extends Migration
             $table->integer("baths");
             $table->integer("garage");
             $table->bigInteger("rent");
+            $table->text("vertical_image");
 
             $table->unsignedBigInteger('agent_id');
             $table->foreign('agent_id')->references('id')->on('agents'); // no cascade

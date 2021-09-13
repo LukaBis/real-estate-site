@@ -2,14 +2,14 @@
 
 namespace App\Helpers;
 
-class RandomPropertyImage {
+class RandomPropertyVerticalImage {
 
     public static function image()
     {
-        $allPropertyImages = \File::files('storage/images/property_images');
+        $allPropertyVerticalImages = \File::files('storage/images/property_images/vertical_images');
         $allPropertyImagesFileNames = [];
 
-        foreach ($allPropertyImages as $image) {
+        foreach ($allPropertyVerticalImages as $image) {
           array_push($allPropertyImagesFileNames, pathinfo($image)["filename"]);
         }
 

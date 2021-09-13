@@ -13,7 +13,7 @@ class CreatePropertyImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('property_images', function (Blueprint $table) {
+        Schema::create('property_horizontal_images', function (Blueprint $table) {
             $table->id();
 
             $table->unsignedBigInteger('property_id');

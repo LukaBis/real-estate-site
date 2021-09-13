@@ -16,22 +16,23 @@
       </div>
     </div>
     <div id="property-carousel" class="owl-carousel owl-theme">
+      @foreach($properties as $property)
       <div class="carousel-item-b">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
-            <img src="img/property-6.jpg" alt="" class="img-a img-fluid">
+            <img src="{{ asset('property_images/vertical_images/'.$property->vertical_image) }}" alt="" class="img-a img-fluid">
           </div>
           <div class="card-overlay">
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
-                  <a href="property-single.html">206 Mount
-                    <br /> Olive Road Two</a>
+                  <a href="property-single.html">{{ $property->city }}
+                    <br /> {{ $property->street_name }}</a>
                 </h2>
               </div>
               <div class="card-body-a">
                 <div class="price-box d-flex">
-                  <span class="price-a">rent | $ 12.000</span>
+                  <span class="price-a">rent | $ {{ $property->rent }}</span>
                 </div>
                 <a href="#" class="link-a">{{ __('Click here to view') }}
                   <span class="ion-ios-arrow-forward"></span>
@@ -41,21 +42,21 @@
                 <ul class="card-info d-flex justify-content-around">
                   <li>
                     <h4 class="card-info-title">{{ __('Area') }}</h4>
-                    <span>340m
+                    <span>{{ $property->area }}m
                       <sup>2</sup>
                     </span>
                   </li>
                   <li>
                     <h4 class="card-info-title">{{ __('Beds') }}</h4>
-                    <span>2</span>
+                    <span>{{ $property->beds }}</span>
                   </li>
                   <li>
                     <h4 class="card-info-title">{{ __('Baths') }}</h4>
-                    <span>4</span>
+                    <span>{{ $property->baths }}</span>
                   </li>
                   <li>
                     <h4 class="card-info-title">{{ __('Garages') }}</h4>
-                    <span>1</span>
+                    <span>{{ $property->garage }}</span>
                   </li>
                 </ul>
               </div>
@@ -63,7 +64,8 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item-b">
+      @endforeach
+      <!-- <div class="carousel-item-b">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
             <img src="img/property-3.jpg" alt="" class="img-a img-fluid">
@@ -109,8 +111,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item-b">
+      </div> -->
+      <!-- <div class="carousel-item-b">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
             <img src="img/property-7.jpg" alt="" class="img-a img-fluid">
@@ -156,8 +158,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item-b">
+      </div> -->
+      <!-- <div class="carousel-item-b">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
             <img src="img/property-10.jpg" alt="" class="img-a img-fluid">
@@ -203,7 +205,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

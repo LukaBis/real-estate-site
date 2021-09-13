@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Property;
-use App\Models\PropertyImage;
+use App\Models\PropertyHorizontalImage;
 
 class PropertySeeder extends Seeder
 {
@@ -16,7 +16,7 @@ class PropertySeeder extends Seeder
     public function run()
     {
         Property::factory()
-                ->has(PropertyImage::factory()->count(3), 'images')
+                ->has(PropertyHorizontalImage::factory()->count(3), 'images')
                 ->count(10)
                 ->create();
     }

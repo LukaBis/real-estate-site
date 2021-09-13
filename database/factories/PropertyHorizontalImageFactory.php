@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\PropertyImage;
+use App\Models\PropertyHorizontalImage;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Helpers\RandomPropertyImage;
+use App\Helpers\RandomPropertyHorizontalImage;
 
-class PropertyImageFactory extends Factory
+class PropertyHorizontalImageFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = PropertyImage::class;
+    protected $model = PropertyHorizontalImage::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class PropertyImageFactory extends Factory
     public function definition()
     {
         return [
-            "filename" => RandomPropertyImage::image()
+            "filename" => RandomPropertyHorizontalImage::image()
         ];
     }
 }
