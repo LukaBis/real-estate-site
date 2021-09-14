@@ -11,12 +11,13 @@
       </div>
     </div>
     <div id="testimonial-carousel" class="owl-carousel owl-arrow">
+      @foreach($testemonials as $testemonial)
       <div class="carousel-item-a">
         <div class="testimonials-box">
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="testimonial-img">
-                <img src="img/testimonial-1.jpg" alt="" class="img-fluid">
+                <img src="{{ asset('testemonial_images/'.$testemonial->image_filename) }}" alt="" class="img-fluid">
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -25,20 +26,19 @@
               </div>
               <div class="testimonials-content">
                 <p class="testimonial-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                  debitis hic ber quibusdam
-                  voluptatibus officia expedita corpori.
+                  {{ $testemonial->text }}
                 </p>
               </div>
               <div class="testimonial-author-box">
-                <img src="img/mini-testimonial-1.jpg" alt="" class="testimonial-avatar">
-                <h5 class="testimonial-author">Albert & Erika</h5>
+                <img src="{{ asset('testemonial_images/mini/'.$testemonial->mini_image_filename) }}" alt="" class="testimonial-avatar">
+                <h5 class="testimonial-author">{{ $testemonial->names }}</h5>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="carousel-item-a">
+      @endforeach
+      <!-- <div class="carousel-item-a">
         <div class="testimonials-box">
           <div class="row">
             <div class="col-sm-12 col-md-6">
@@ -64,7 +64,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>

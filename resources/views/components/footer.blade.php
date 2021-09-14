@@ -52,12 +52,12 @@
           </div>
           <div class="w-body-a">
             <ul class="list-unstyled">
+              @foreach($languages as $language)
               <li class="item-list-a">
-                <i class="fa fa-angle-right"></i> <a href="#">English</a>
+                <i class="fa fa-angle-right"></i> <a href="/{{ $language->iso }}">
+                  {{ $language->name }}</a>
               </li>
-              <li class="item-list-a">
-                <i class="fa fa-angle-right"></i> <a href="#">Croatian</a>
-              </li>
+              @endforeach
             </ul>
           </div>
         </div>

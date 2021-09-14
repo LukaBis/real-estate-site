@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             AgentSeeder::class,
             AmenitySeeder::class,
-            PropertySeeder::class
+            PropertySeeder::class,
+            TestemonialSeeder::class
         ]);
     }
 }

@@ -29,7 +29,7 @@ class ArrayOfAgents {
           "email" => "jully.geller@email.com",
           "image" => "jullygeller.jpg",
           "en" => ["about" => "One of the best real estate agents in New York. His specialty made a lot of clients happy."],
-          "hrv" => ["about" => "Jedan od najboljih agenata u New York-u. Njegova profesionalnost i stručnost je zadovoljila puno klijenata."]
+          "hrv" => ["about" => "Jedna od najboljih agenata u New York-u. Njegova profesionalnost i stručnost je zadovoljila puno klijenata."]
         ],
         [
           "full_name" => "Susan Dragic",
