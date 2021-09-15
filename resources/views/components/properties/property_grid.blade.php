@@ -63,9 +63,9 @@
         </div>
       </div>
       @endforeach
-    <div class="row">
-      {{ $properties->links() }}
-    </div>
+  </div>
+  <div class="row">
+    {{ $properties->links() }}
   </div>
 </section>
 <!--/ Property Grid End /-->
