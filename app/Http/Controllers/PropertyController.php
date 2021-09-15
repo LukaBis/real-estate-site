@@ -26,8 +26,6 @@ class PropertyController extends Controller
           $relations = ['images']
         );
 
-        // dd($properties);
-
         return view('properties', [
           'languages' => $languages,
           'properties'   => $properties
