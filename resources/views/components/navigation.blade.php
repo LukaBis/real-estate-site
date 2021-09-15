@@ -23,13 +23,17 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link @if(Request::segment(2) == 'about') active @endif" 
+            class="nav-link @if(Request::segment(2) == 'about') active @endif"
             href="/{{ app()->getLocale() }}/about">
             {{ __('About') }}
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="property-grid.html">{{ __('Property') }}</a>
+          <a
+            class="nav-link @if(Request::segment(2) == 'properties') active @endif" 
+            href="/{{ app()->getLocale() }}/properties">
+            {{ __('Property') }}
+          </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

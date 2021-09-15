@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\PropertyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Route::get('/', function () {
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/', [HomeController::class, 'homePage']);
     Route::get('/about', [AboutController::class, 'aboutPage']);
+    Route::get('/properties', [PropertyController::class, 'allProperties']);
 });

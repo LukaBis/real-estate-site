@@ -2,12 +2,11 @@
 
 @section('content')
 
-  <div class="click-closed"></div>
   @include('components.form-search')
-  @include('components.carousel')
-  @include('components.services')
-  @include('components.properties')
+  @include('components.home.carousel')
+  @include('components.home.services')
+  @include('components.home.properties')
   @include('components.agents')
-  @include('components.testemonials')
+  @include('components.home.testemonials')
 
 @stop

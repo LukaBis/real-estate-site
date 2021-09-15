@@ -82,9 +82,6 @@
               <a href="#">{{ __('Property') }}</a>
             </li>
             <li class="list-inline-item">
-              <a href="#">{{ __('Blog') }}</a>
-            </li>
-            <li class="list-inline-item">
               <a href="#">{{ __('Contact') }}</a>
             </li>
           </ul>
