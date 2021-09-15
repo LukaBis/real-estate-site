@@ -5,7 +5,13 @@
       <div class="col-md-12">
         <div class="title-wrap d-flex justify-content-between">
           <div class="title-box">
-            <h2 class="title-a">{{ __('Best Agents') }}</h2>
+            <h2 class="title-a">
+              @if(Request::segment(2) == '')
+                {{ __('Best Agents') }}
+              @elseif(Request::segment(2) == 'about')
+                {{ __('Meet our team') }}
+              @endif
+            </h2>
           </div>
           <div class="title-link">
             <a href="agents-grid.html">{{ __('All Agents') }}
@@ -20,7 +26,7 @@
       <div class="col-md-4">
         <div class="card-box-d">
           <div class="card-img-d">
-            <img src="{{ asset('agent_images/'.$agent->image) }}" alt="" class="img-d img-fluid">
+            <img src="{{ asset('images/agent_images/'.$agent->image) }}" alt="" class="img-d img-fluid">
           </div>
           <div class="card-overlay card-overlay-hover">
             <div class="card-header-d">

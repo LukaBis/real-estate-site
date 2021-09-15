@@ -68,9 +68,10 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        public_path('property_images') => storage_path('images/property_images'),
-        public_path('agent_images') => storage_path('images/agent_images'),
-        public_path('testemonial_images') => storage_path('images/testemonial_images')
+        public_path('images/property_images') => storage_path('images/property_images'),
+        public_path('images/agent_images') => storage_path('images/agent_images'),
+        public_path('images/testemonial_images') => storage_path('images/testemonial_images'),
+        public_path('images/about_images') => storage_path('images/about_images')
     ],
 
 ];

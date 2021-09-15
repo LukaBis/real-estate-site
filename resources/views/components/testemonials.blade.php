@@ -17,7 +17,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="testimonial-img">
-                <img src="{{ asset('testemonial_images/'.$testemonial->image_filename) }}" alt="" class="img-fluid">
+                <img src="{{ asset('images/testemonial_images/'.$testemonial->image_filename) }}" alt="" class="img-fluid">
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -30,7 +30,7 @@
                 </p>
               </div>
               <div class="testimonial-author-box">
-                <img src="{{ asset('testemonial_images/mini/'.$testemonial->mini_image_filename) }}" alt="" class="testimonial-avatar">
+                <img src="{{ asset('images/testemonial_images/mini/'.$testemonial->mini_image_filename) }}" alt="" class="testimonial-avatar">
                 <h5 class="testimonial-author">{{ $testemonial->names }}</h5>
               </div>
             </div>
@@ -38,33 +38,6 @@
         </div>
       </div>
       @endforeach
-      <!-- <div class="carousel-item-a">
-        <div class="testimonials-box">
-          <div class="row">
-            <div class="col-sm-12 col-md-6">
-              <div class="testimonial-img">
-                <img src="img/testimonial-2.jpg" alt="" class="img-fluid">
-              </div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-              <div class="testimonial-ico">
-                <span class="ion-ios-quote"></span>
-              </div>
-              <div class="testimonials-content">
-                <p class="testimonial-text">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium
-                  debitis hic ber quibusdam
-                  voluptatibus officia expedita corpori.
-                </p>
-              </div>
-              <div class="testimonial-author-box">
-                <img src="img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
-                <h5 class="testimonial-author">Pablo & Emma</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>

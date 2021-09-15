@@ -2,7 +2,7 @@
 <div class="intro intro-carousel">
   <div id="carousel" class="owl-carousel owl-theme">
     @foreach($properties as $property)
-    <div class="carousel-item-a intro-item bg-image" style="background-image: url({{ asset('property_images/horizontal_images/'.$property->images[0]->filename) }})">
+    <div class="carousel-item-a intro-item bg-image" style="background-image: url({{ asset('images/property_images/horizontal_images/'.$property->images[0]->filename) }})">
       <div class="overlay overlay-a"></div>
       <div class="intro-content display-table">
         <div class="table-cell">

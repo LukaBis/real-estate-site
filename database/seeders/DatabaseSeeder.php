@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             AgentSeeder::class,
             AmenitySeeder::class,
             PropertySeeder::class,
-            TestemonialSeeder::class
+            TestemonialSeeder::class,
+            AboutSeeder::class
         ]);
     }
 }

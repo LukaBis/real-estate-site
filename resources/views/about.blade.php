@@ -4,10 +4,8 @@
 
   <div class="click-closed"></div>
   @include('components.form-search')
-  @include('components.carousel')
-  @include('components.services')
-  @include('components.properties')
+  @include('components.about-intro')
+  @include('components.about-section')
   @include('components.agents')
-  @include('components.testemonials')
 
 @stop

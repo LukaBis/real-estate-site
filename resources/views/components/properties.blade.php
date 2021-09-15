@@ -20,7 +20,7 @@
       <div class="carousel-item-b">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
-            <img src="{{ asset('property_images/vertical_images/'.$property->vertical_image) }}" alt="" class="img-a img-fluid">
+            <img src="{{ asset('images/property_images/vertical_images/'.$property->vertical_image) }}" alt="" class="img-a img-fluid">
           </div>
           <div class="card-overlay">
             <div class="card-overlay-a-content">
