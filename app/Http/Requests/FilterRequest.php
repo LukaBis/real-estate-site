@@ -16,6 +16,16 @@ class FilterRequest extends FormRequest
     }
 
     /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        if ($this->status == "All") $this->merge([ 'status' => null ]);
+    }
+
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -23,7 +33,10 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'filter' => Rule::in($this->propertyRepository->arrayOfAllFilters())
+            'status' => [
+              Rule::in($this->propertyRepository->getAllDifferentStatusesInArray()),
+              'nullable'
+            ]
         ];
     }
 }

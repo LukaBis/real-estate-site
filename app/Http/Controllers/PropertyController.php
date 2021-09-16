@@ -22,19 +22,18 @@ class PropertyController extends Controller
 
     public function allProperties(FilterRequest $request)
     {
-        $languages           = $this->languageRepository->all();
-        $property_filters    = $this->propertyRepository->getAllDifferentStatuses();
-        $properties          = $this->propertyRepository->paginate_all(
+        $languages  = $this->languageRepository->all();
+        $statuses   = $this->propertyRepository->getAllDifferentStatuses();
+        $properties = $this->propertyRepository->paginate_filtered_results(
           6,
-          $relations = ['images'],
-          $filter    = $request->filter
+          $request
         );
 
         return view('properties', [
-          'languages'        => $languages,
-          'properties'       => $properties,
-          'property_filters' => $property_filters,
-          'current_filter'   => $filter
+          'languages'             => $languages,
+          'properties'            => $properties,
+          'statuses'              => $statuses,
+          'current_status_filter' => $request->status
         ]);
     }
 }

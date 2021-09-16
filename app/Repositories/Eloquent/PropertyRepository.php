@@ -24,16 +24,17 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         $this->model = $model;
     }
 
-    public function paginate_all(int $per_pages, array $relations = [], $filter = null): LengthAwarePaginator
+    public function paginate_filtered_results(int $per_pages, $request): LengthAwarePaginator
     {
-        if ($filter == 'All' || $filter == null) {
-          return $this->model->paginate($per_pages);
-        } else {
-          $properties = $this->model->where('status', $filter)->paginate($per_pages);
-          $properties->appends(['filter' => $filter]);
+        $properties = $this->model
+                           ->when($request->status, function ($query, $status) {
+                                       return $query->where('status', $status);
+                                   })
+                           ->paginate($per_pages);
 
-          return $properties;
-        }
+         $properties->appends(['status' => $request->status]);
+
+         return $properties;
     }
 
     public function getAllDifferentStatuses(): Collection
@@ -41,14 +42,10 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         return $this->model->select('status')->distinct()->get();
     }
 
-    public function arrayOfAllFilters(): array
+    public function getAllDifferentStatusesInArray(): array
     {
         $statuses = $this->model->select('status')->distinct()->get()->toArray();
-        $statuses = array_column($statuses, 'status');
-        array_push($statuses, null);
-        array_push($statuses, 'All');
-
-        return $statuses;
+        return array_column($statuses, 'status');
     }
 
 }

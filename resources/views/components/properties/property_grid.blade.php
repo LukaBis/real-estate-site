@@ -6,22 +6,21 @@
         <div class="grid-option">
           <form action="/{{ app()->getLocale() }}/properties" method="GET" id="filter">
             @csrf
-            <select class="custom-select" name="filter">
+            <select class="custom-select" name="status">
               <option
-              @if($current_filter == null) selected @endif
-              >
+               class="filter"
+               @if($current_status_filter == null) selected @endif>
                 All
               </option>
-              @foreach($property_filters as $filter)
+              @foreach($statuses as $status)
                   <option
-                    @if($current_filter == $filter->status) selected @endif
-                    value="{{ $filter->status }}"
+                    value="{{ $status->status }}"
+                    @if($current_status_filter == $status->status) selected @endif
                     class="filter">
-                      {{ $filter->status }}
+                      {{ $status->status }}
                   </option>
               @endforeach
             </select>
-            <!-- <button style="display: none;" id="filter-submit" type="submit">Submit</button> -->
           </form>
         </div>
       </div>
