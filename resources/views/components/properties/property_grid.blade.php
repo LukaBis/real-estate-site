@@ -4,13 +4,24 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="grid-option">
-          <form>
-            <select class="custom-select">
-              <option selected>All</option>
-              <option value="1">New to Old</option>
-              <option value="2">For Rent</option>
-              <option value="3">For Sale</option>
+          <form action="/{{ app()->getLocale() }}/properties" method="GET" id="filter">
+            @csrf
+            <select class="custom-select" name="filter">
+              <option
+              @if($current_filter == null) selected @endif
+              >
+                All
+              </option>
+              @foreach($property_filters as $filter)
+                  <option
+                    @if($current_filter == $filter->status) selected @endif
+                    value="{{ $filter->status }}"
+                    class="filter">
+                      {{ $filter->status }}
+                  </option>
+              @endforeach
             </select>
+            <!-- <button style="display: none;" id="filter-submit" type="submit">Submit</button> -->
           </form>
         </div>
       </div>

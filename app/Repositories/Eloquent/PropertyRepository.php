@@ -5,7 +5,6 @@ namespace App\Repositories\Eloquent;
 use App\Models\Property;
 use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
-
 use Illuminate\Database\Eloquent\Collection;
 
 class PropertyRepository extends BaseRepository implements PropertyRepositoryInterface
@@ -25,9 +24,21 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         $this->model = $model;
     }
 
-    public function paginate_all(int $per_pages, array $relations = []): LengthAwarePaginator
+    public function paginate_all(int $per_pages, array $relations = [], $filter = null): LengthAwarePaginator
     {
-        return $this->model->paginate($per_pages);
+        if ($filter == 'All' || $filter == null) {
+          return $this->model->paginate($per_pages);
+        } else {
+          $properties = $this->model->where('status', $filter)->paginate($per_pages);
+          $properties->appends(['filter' => $filter]);
+
+          return $properties;
+        }
+    }
+
+    public function getAllDifferentStatuses(): Collection
+    {
+        return $this->model->select('status')->distinct()->get();
     }
 
 }

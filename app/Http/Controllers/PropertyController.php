@@ -9,26 +9,31 @@ use App\Repositories\PropertyRepositoryInterface;
 class PropertyController extends Controller
 {
     private $languageRepository;
+    private $propertyRepository;
 
     public function __construct(
       LanguageRepositoryInterface $languageRepository,
       PropertyRepositoryInterface $propertyRepository
       ) {
         $this->languageRepository = $languageRepository;
-        $this->propertyRepository    = $propertyRepository;
+        $this->propertyRepository = $propertyRepository;
     }
 
-    public function allProperties()
+    public function allProperties(Request $request)
     {
-        $languages  = $this->languageRepository->all();
-        $properties = $this->propertyRepository->paginate_all(
+        $languages           = $this->languageRepository->all();
+        $property_filters    = $this->propertyRepository->getAllDifferentStatuses();
+        $properties          = $this->propertyRepository->paginate_all(
           6,
-          $relations = ['images']
+          $relations = ['images'],
+          $filter    = $request->filter
         );
 
         return view('properties', [
-          'languages' => $languages,
-          'properties'   => $properties
+          'languages'        => $languages,
+          'properties'       => $properties,
+          'property_filters' => $property_filters,
+          'current_filter'   => $filter
         ]);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PropertyController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
