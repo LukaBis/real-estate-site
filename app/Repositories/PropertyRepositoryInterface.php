@@ -9,4 +9,5 @@ interface PropertyRepositoryInterface extends EloquentRepositoryInterface
 {
     public function paginate_all(int $per_pages, array $relations = []): LengthAwarePaginator;
     public function getAllDifferentStatuses(): Collection;
+    public function arrayOfAllFilters(): array;
 }

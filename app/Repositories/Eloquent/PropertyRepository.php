@@ -41,4 +41,14 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         return $this->model->select('status')->distinct()->get();
     }
 
+    public function arrayOfAllFilters(): array
+    {
+        $statuses = $this->model->select('status')->distinct()->get()->toArray();
+        $statuses = array_column($statuses, 'status');
+        array_push($statuses, null);
+        array_push($statuses, 'All');
+
+        return $statuses;
+    }
+
 }

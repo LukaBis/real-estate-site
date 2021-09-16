@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\PropertyRepositoryInterface;
+use App\Http\Requests\FilterRequest;
 
 class PropertyController extends Controller
 {
@@ -19,7 +20,7 @@ class PropertyController extends Controller
         $this->propertyRepository = $propertyRepository;
     }
 
-    public function allProperties(Request $request)
+    public function allProperties(FilterRequest $request)
     {
         $languages           = $this->languageRepository->all();
         $property_filters    = $this->propertyRepository->getAllDifferentStatuses();
