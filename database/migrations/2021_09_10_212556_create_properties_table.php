@@ -20,7 +20,6 @@ class CreatePropertiesTable extends Migration
             $table->text("city");
             $table->bigInteger("price");
             $table->text("type");
-            $table->text("status");
             $table->bigInteger("area");
             $table->integer("beds");
             $table->integer("baths");

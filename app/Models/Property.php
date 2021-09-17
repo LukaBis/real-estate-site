@@ -9,6 +9,8 @@ use Astrotomic\Translatable\Translatable;
 use App\Models\PropertyHorizontalImage;
 use App\Models\Amenity;
 use App\Models\Agent;
+use App\Models\Status;
+use App\Models\PropertyStatus;
 
 class Property extends Model
 {
@@ -32,5 +34,16 @@ class Property extends Model
     public function agent()
     {
         return $this->belongsTo(Agent::class);
+    }
+
+    public function status()
+    {
+        return $this->hasOne(Status::class);
+    }
+
+    // return pivot table's models
+    public function statusProperty()
+    {
+        return $this->hasMany(PropertyStatus::class);
     }
 }

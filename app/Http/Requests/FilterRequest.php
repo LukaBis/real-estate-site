@@ -3,16 +3,16 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Repositories\PropertyRepositoryInterface;
+use App\Repositories\StatusRepositoryInterface;
 use Illuminate\Validation\Rule;
 
 class FilterRequest extends FormRequest
 {
-    private $propertyRepository;
+    private $statusRepository;
 
-    public function __construct(PropertyRepositoryInterface $propertyRepository)
+    public function __construct(StatusRepositoryInterface $statusRepository)
     {
-        $this->propertyRepository = $propertyRepository;
+        $this->statusRepository = $statusRepository;
     }
 
     /**
@@ -22,7 +22,7 @@ class FilterRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
-        if ($this->status == "All") $this->merge([ 'status' => null ]);
+         if ($this->status == "All") $this->merge([ 'status' => null ]);
     }
 
     /**
@@ -34,7 +34,7 @@ class FilterRequest extends FormRequest
     {
         return [
             'status' => [
-              Rule::in($this->propertyRepository->getAllDifferentStatusesInArray()),
+              Rule::in($this->statusRepository->idArray()),
               'nullable'
             ]
         ];

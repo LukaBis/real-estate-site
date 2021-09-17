@@ -6,6 +6,7 @@ use App\Models\Property;
 use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Builder;
 
 class PropertyRepository extends BaseRepository implements PropertyRepositoryInterface
 {
@@ -28,24 +29,15 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
     {
         $properties = $this->model
                            ->when($request->status, function ($query, $status) {
-                                       return $query->where('status', $status);
+                                       return $query->whereHas('statusProperty', function(Builder $query) use($status)  {
+                                         $query->where('status_id', $status);
+                                       });
                                    })
                            ->paginate($per_pages);
 
          $properties->appends(['status' => $request->status]);
 
          return $properties;
-    }
-
-    public function getAllDifferentStatuses(): Collection
-    {
-        return $this->model->select('status')->distinct()->get();
-    }
-
-    public function getAllDifferentStatusesInArray(): array
-    {
-        $statuses = $this->model->select('status')->distinct()->get()->toArray();
-        return array_column($statuses, 'status');
     }
 
 }

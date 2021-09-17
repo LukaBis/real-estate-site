@@ -72,7 +72,6 @@ class PropertyFactory extends Factory
             'city' => $this->faker->city(),
             'price' => rand(150, 300) * 1000,
             'type' => ["House", "Apartment", "Bungalov", "Villa"][rand(0,3)],
-            'status' => ["active", "sold"][rand(0,1)],
             'area' => rand(120, 500),
             'beds' => rand(1, 10),
             'baths' => rand(1, 3),

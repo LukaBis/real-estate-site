@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             AgentSeeder::class,
             AmenitySeeder::class,
+            StatusSeeder::class,
             PropertySeeder::class,
             TestemonialSeeder::class,
             AboutSeeder::class

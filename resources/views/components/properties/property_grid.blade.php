@@ -9,13 +9,14 @@
             <select class="custom-select" name="status">
               <option
                class="filter"
+               value="All"
                @if($current_status_filter == null) selected @endif>
-                All
+                {{ __('All') }}
               </option>
               @foreach($statuses as $status)
                   <option
-                    value="{{ $status->status }}"
-                    @if($current_status_filter == $status->status) selected @endif
+                    value="{{ $status->status_id }}"
+                    @if($current_status_filter == $status->status_id) selected @endif
                     class="filter">
                       {{ $status->status }}
                   </option>
