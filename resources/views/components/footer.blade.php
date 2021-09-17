@@ -73,13 +73,17 @@
         <nav class="nav-footer">
           <ul class="list-inline">
             <li class="list-inline-item">
-              <a href="#">{{ __('Home') }}</a>
+              <a href="/{{ app()->currentLocale() }}/">
+                {{ __('Home') }}
+              </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">{{ __('About') }}</a>
+              <a href="/{{ app()->currentLocale() }}/about">
+                {{ __('About') }}
+              </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">{{ __('Property') }}</a>
+              <a href="/{{ app()->currentLocale() }}/properties">{{ __('Property') }}</a>
             </li>
             <li class="list-inline-item">
               <a href="#">{{ __('Contact') }}</a>

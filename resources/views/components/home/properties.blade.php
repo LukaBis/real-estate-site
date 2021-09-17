@@ -26,7 +26,8 @@
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
-                  <a href="property-single.html">{{ $property->city }}
+                  <a href="/{{ app()->currentLocale() }}/property/{{ $property->id }}">
+                    {{ $property->city }}
                     <br /> {{ $property->street_name }}</a>
                 </h2>
               </div>
@@ -34,7 +35,7 @@
                 <div class="price-box d-flex">
                   <span class="price-a">rent | $ {{ $property->rent }}</span>
                 </div>
-                <a href="#" class="link-a">{{ __('Click here to view') }}
+                <a href="/{{ app()->currentLocale() }}/property/{{ $property->id }}" class="link-a">{{ __('Click here to view') }}
                   <span class="ion-ios-arrow-forward"></span>
                 </a>
               </div>

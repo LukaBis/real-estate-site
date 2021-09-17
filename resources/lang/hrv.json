@@ -47,5 +47,13 @@
 
   "Our Amazing Properties": "Naši luksuzni smještaji",
   "Grid Properties": "Lista smještaja",
-  "Properties": "Smještaji"
+  "Properties": "Smještaji",
+
+  "Quick Summary": "Sažetak",
+  "Location": "Lokacija",
+  "Garage": "Garaže",
+  "Type": "Tip",
+  "Property Type": "Tip Nekretnine",
+  "Property Description": "Opis smještaja",
+  "Amenities": "Sadržaj"
 }

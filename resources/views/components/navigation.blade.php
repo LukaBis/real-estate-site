@@ -30,7 +30,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link @if(Request::segment(2) == 'properties') active @endif" 
+            class="nav-link @if(Request::segment(2) == 'properties') active @endif"
             href="/{{ app()->getLocale() }}/properties">
             {{ __('Property') }}
           </a>

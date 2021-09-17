@@ -46,5 +46,12 @@
 
   "Our Amazing Properties": "Our Amazing Properties",
   "Grid Properties": "Grid Properties",
-  "Properties": "Properties"
+  "Properties": "Properties",
+
+  "Quick Summary": "Quick Summary",
+  "Location": "Location",
+  "Garage": "Garage",
+  "Property Type": "Property Type",
+  "Property Description": "Property Description",
+  "Amenities": "Amenities"
 }

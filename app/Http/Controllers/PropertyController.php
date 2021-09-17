@@ -36,4 +36,19 @@ class PropertyController extends Controller
           'current_status_filter' => $request->status
         ]);
     }
+
+    public function singleProperty(Request $request)
+    {
+        $languages = $this->languageRepository->all();
+        $property  = $this->propertyRepository->findById(
+          $request->id,
+          ['*'],
+          ['images', 'amenities', 'agent']
+        );
+
+        return view('single-property', [
+          'languages' => $languages,
+          'property'  => $property,
+        ]);
+    }
 }

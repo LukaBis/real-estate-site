@@ -26,4 +26,5 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/', [HomeController::class, 'homePage']);
     Route::get('/about', [AboutController::class, 'aboutPage']);
     Route::get('/properties', [PropertyController::class, 'allProperties']);
+    Route::get('/property/{id}', [PropertyController::class, 'singleProperty']);
 });
