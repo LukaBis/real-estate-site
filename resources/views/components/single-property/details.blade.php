@@ -42,7 +42,7 @@
                   </li>
                   <li class="d-flex justify-content-between">
                     <strong>{{ __('Status') }}:</strong>
-                    <span>{{ $property->status }}</span>
+                    <span>{{ $property->status->status }}</span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <strong>{{ __('Area') }}:</strong>

@@ -2,13 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\Property;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Helpers\RandomAgentId;
 use App\Helpers\RandomPropertyTranslation;
 use App\Models\PropertyTranslation;
 use App\Models\AmenityProperty;
 use App\Models\Amenity;
+use App\Models\Property;
+use App\Models\Status;
 use App\Helpers\RandomPropertyVerticalImage;
 
 class PropertyFactory extends Factory
@@ -66,6 +67,8 @@ class PropertyFactory extends Factory
      */
     public function definition()
     {
+        $status_ids = array_column(Status::select('id')->get()->toArray(), 'id');
+
         return [
             'street_name' => $this->faker->streetName(),
             'house_number' => $this->faker->buildingNumber(),
@@ -78,6 +81,7 @@ class PropertyFactory extends Factory
             'garage' => 1,
             "rent" => rand(700, 3500),
             "agent_id" => RandomAgentId::agent(),
+            "status_id" => $status_ids[rand(0, count($status_ids) - 1)],
             'vertical_image' => RandomPropertyVerticalImage::image()
         ];
     }

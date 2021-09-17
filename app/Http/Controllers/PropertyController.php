@@ -54,8 +54,7 @@ class PropertyController extends Controller
 
         return view('single-property', [
           'languages' => $languages,
-          'property'  => $property,
-          'current_status_filter' => $request->status
+          'property'  => $property
         ]);
     }
 }

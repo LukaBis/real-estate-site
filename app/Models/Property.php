@@ -38,12 +38,7 @@ class Property extends Model
 
     public function status()
     {
-        return $this->hasOne(Status::class);
+        return $this->belongsTo(Status::class);
     }
 
-    // return pivot table's models
-    public function statusProperty()
-    {
-        return $this->hasMany(PropertyStatus::class);
-    }
 }

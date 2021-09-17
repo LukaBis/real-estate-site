@@ -29,9 +29,7 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
     {
         $properties = $this->model
                            ->when($request->status, function ($query, $status) {
-                                       return $query->whereHas('statusProperty', function(Builder $query) use($status)  {
-                                         $query->where('status_id', $status);
-                                       });
+                                       return $query->where("status_id", $status);
                                    })
                            ->paginate($per_pages);
 

@@ -27,6 +27,9 @@ class CreatePropertiesTable extends Migration
             $table->bigInteger("rent");
             $table->text("vertical_image");
 
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('statuses');
+
             $table->unsignedBigInteger('agent_id');
             $table->foreign('agent_id')->references('id')->on('agents'); // no cascade
 
