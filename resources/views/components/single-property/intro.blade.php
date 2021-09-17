@@ -12,10 +12,12 @@
         <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="index.html">{{ __('Home') }}</a>
+              <a href="/{{ app()->currentLocale() }}/">
+                {{ __('Home') }}
+              </a>
             </li>
             <li class="breadcrumb-item">
-              <a href="property-grid.html">{{ __('Properties') }}</a>
+              <a href="/{{ app()->currentLocale() }}/properties">{{ __('Properties') }}</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">
               {{ $property->house_number }} {{ $property->street_name }}
