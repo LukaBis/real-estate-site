@@ -103,7 +103,7 @@
         <div class="row section-t3">
           <div class="col-sm-12">
             <div class="title-box-d">
-              <h3 class="title-d">{{ __('Agent') }}</h3>
+              <h3 class="title-d">{{ __('Contact Agent') }}</h3>
             </div>
           </div>
         </div>
