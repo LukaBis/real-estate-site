@@ -33,13 +33,15 @@
             <div class="card-header-d">
               <div class="card-title-d align-self-center">
                 <h3 class="title-d">
-                  <a href="agent-single.html" class="link-two">{{ $agent->full_name }}</a>
+                  <a href="/{{ app()->currentLocale() }}/agent/{{ $agent->id }}" class="link-two">
+                    {{ $agent->full_name }}
+                  </a>
                 </h3>
               </div>
             </div>
             <div class="card-body-d">
               <p class="content-d color-text-a">
-                {{ $agent->about }}
+                {{ explode(".", $agent->about)[0] . '.' . explode(".", $agent->about)[1] }}
               </p>
               <div class="info-agents color-a">
                 <p>

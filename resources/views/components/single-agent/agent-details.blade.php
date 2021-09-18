@@ -71,19 +71,12 @@
           <h3 class="title-d">{{ __('My Properties') }} ({{ $agent->properties->count() }})</h3>
         </div>
       </div>
-      <div class="row property-grid grid">
-        <!-- <div class="col-sm-12">
-          <div class="grid-option">
-            <form>
-              <select class="custom-select">
-                <option selected>All</option>
-                <option value="1">New to Old</option>
-                <option value="2">For Rent</option>
-                <option value="3">For Sale</option>
-              </select>
-            </form>
-          </div>
-        </div> -->
+      <div
+      class="row property-grid grid"
+      @if($agent->properties->count() == 1)
+      style="width: 100%;"
+      @endif
+      >
         @foreach($agent->properties as $property)
         <div class="col-md-4">
           <div class="card-box-a card-shadow">

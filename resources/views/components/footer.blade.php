@@ -151,8 +151,6 @@
 <script src="/lib/easing/easing.min.js"></script>
 <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="/lib/scrollreveal/scrollreveal.min.js"></script>
-<!-- Contact Form JavaScript File -->
-<script src="/contactform/contactform.js"></script>
 
 <!-- Template Main Javascript File -->
 <script src="/js/main.js"></script>
