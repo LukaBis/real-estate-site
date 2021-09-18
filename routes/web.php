@@ -29,4 +29,5 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/properties', [PropertyController::class, 'allProperties']);
     Route::get('/property/{id}', [PropertyController::class, 'singleProperty']);
     Route::get('/agents', [AgentController::class, 'allAgents']);
+    Route::get('/agent/{id}', [AgentController::class, 'singleAgent']);
 });

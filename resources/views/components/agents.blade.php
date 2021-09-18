@@ -14,7 +14,8 @@
             </h2>
           </div>
           <div class="title-link">
-            <a href="agents-grid.html">{{ __('All Agents') }}
+            <a href="/{{ app()->currentLocale() }}/agents">
+              {{ __('All Agents') }}
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>

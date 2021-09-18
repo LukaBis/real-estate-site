@@ -7,6 +7,7 @@ use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\PropertyRepositoryInterface;
 use App\Repositories\StatusTranslationRepositoryInterface;
 use App\Http\Requests\FilterRequest;
+use App\Http\Requests\SinglePropertyRequest;
 
 class PropertyController extends Controller
 {
@@ -43,7 +44,7 @@ class PropertyController extends Controller
         ]);
     }
 
-    public function singleProperty(Request $request)
+    public function singleProperty(SinglePropertyRequest $request)
     {
         $languages = $this->languageRepository->all();
         $property  = $this->propertyRepository->findById(

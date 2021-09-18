@@ -12,7 +12,7 @@
             <div class="card-header-d">
               <div class="card-title-d align-self-center">
                 <h3 class="title-d">
-                  <a href="#" class="link-two">
+                  <a href="/{{ app()->currentLocale() }}/agent/{{ $agent->id }}" class="link-two">
                     {{ $agent->full_name }}
                   </a>
                 </h3>

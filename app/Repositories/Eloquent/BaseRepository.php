@@ -103,7 +103,6 @@ class BaseRepository implements EloquentRepositoryInterface
     /**
      * Return random model id
      *
-     *
      * @return int
      */
     public function randomId(): int
@@ -112,5 +111,15 @@ class BaseRepository implements EloquentRepositoryInterface
         $numberOfModels = $allModelIds->count();
 
         return $allModelIds[rand(0, $numberOfModels - 1)]->id;
+    }
+
+    /**
+    * Return all ids in array
+    *
+    * @return array
+    **/
+    public function allIdsInOneDimensionalArray(): array
+    {
+        return array_column($this->model->select('id')->get()->toArray(), 'id');
     }
 }

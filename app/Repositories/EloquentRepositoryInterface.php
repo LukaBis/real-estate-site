@@ -64,4 +64,6 @@ interface EloquentRepositoryInterface
      * @return bool
      */
     public function permanentlyDeleteById(int $modelId): bool;
+
+    public function allIdsInOneDimensionalArray(): array;
 }

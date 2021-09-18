@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\AgentRepositoryInterface;
+use App\Http\Requests\SingleAgentRequest;
 
 class AgentController extends Controller
 {
@@ -27,6 +28,21 @@ class AgentController extends Controller
         return view('agents',[
           'languages' => $languages,
           'agents'    => $agents
+        ]);
+    }
+
+    public function singleAgent(SingleAgentRequest $request)
+    {
+        $languages  = $this->languageRepository->all();
+        $agent      = $this->agentRepository->findById(
+          $request->id,
+          ['*'],
+          ['properties']
+        );
+
+        return view('single-agent',[
+          'languages' => $languages,
+          'agent'     => $agent
         ]);
     }
 }

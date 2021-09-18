@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
+use App\Models\Property;
 
 class Agent extends Model
 {
@@ -14,4 +15,9 @@ class Agent extends Model
 
     public $translatedAttributes = ['about'];
     protected $fillable = ['full_name', 'phone', 'email', 'image'];
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
 }
