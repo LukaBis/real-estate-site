@@ -11,6 +11,7 @@ class AboutController extends Controller
 {
     private $languageRepository;
     private $agentRepository;
+    private $aboutRepository;
 
     public function __construct(
         LanguageRepositoryInterface $languageRepository,

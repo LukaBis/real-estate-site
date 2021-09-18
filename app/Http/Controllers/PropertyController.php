@@ -19,8 +19,8 @@ class PropertyController extends Controller
       PropertyRepositoryInterface $propertyRepository,
       StatusTranslationRepositoryInterface $statusTranslationRepository
       ) {
-        $this->languageRepository = $languageRepository;
-        $this->propertyRepository = $propertyRepository;
+        $this->languageRepository          = $languageRepository;
+        $this->propertyRepository          = $propertyRepository;
         $this->statusTranslationRepository = $statusTranslationRepository;
     }
 

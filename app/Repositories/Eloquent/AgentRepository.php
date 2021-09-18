@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Agent;
 use App\Repositories\AgentRepositoryInterface;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class AgentRepository extends BaseRepository implements AgentRepositoryInterface
 {
@@ -20,6 +21,11 @@ class AgentRepository extends BaseRepository implements AgentRepositoryInterface
     public function __construct(Agent $model)
     {
         $this->model = $model;
+    }
+
+    public function paginated_results(int $per_pages): LengthAwarePaginator
+    {
+        return $this->model->paginate($per_pages);
     }
 
 }

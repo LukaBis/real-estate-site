@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\AgentController;
 use Illuminate\Http\Request;
 
 /*
@@ -27,4 +28,5 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/about', [AboutController::class, 'aboutPage']);
     Route::get('/properties', [PropertyController::class, 'allProperties']);
     Route::get('/property/{id}', [PropertyController::class, 'singleProperty']);
+    Route::get('/agents', [AgentController::class, 'allAgents']);
 });
