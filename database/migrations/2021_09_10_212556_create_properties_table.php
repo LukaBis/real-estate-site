@@ -19,7 +19,6 @@ class CreatePropertiesTable extends Migration
             $table->integer("house_number");
             $table->text("city");
             $table->bigInteger("price");
-            $table->text("type");
             $table->bigInteger("area");
             $table->integer("beds");
             $table->integer("baths");
@@ -29,6 +28,9 @@ class CreatePropertiesTable extends Migration
 
             $table->unsignedBigInteger('status_id');
             $table->foreign('status_id')->references('id')->on('statuses');
+
+            $table->unsignedBigInteger('type_id');
+            $table->foreign('type_id')->references('id')->on('types');
 
             $table->unsignedBigInteger('agent_id');
             $table->foreign('agent_id')->references('id')->on('agents'); // no cascade

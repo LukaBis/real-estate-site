@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Models\Agent;
-use App\Repositories\AgentRepositoryInterface;
+use App\Models\Type;
+use App\Repositories\TypeRepositoryInterface;
 
-class AgentRepository extends BaseRepository implements AgentRepositoryInterface
+class TypeRepository extends BaseRepository implements TypeRepositoryInterface
 {
     /**
      * @var Model
@@ -17,7 +17,7 @@ class AgentRepository extends BaseRepository implements AgentRepositoryInterface
      *
      * @param Model $model
      */
-    public function __construct(Agent $model)
+    public function __construct(Type $model)
     {
         $this->model = $model;
     }

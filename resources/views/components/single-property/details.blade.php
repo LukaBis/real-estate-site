@@ -38,7 +38,7 @@
                   </li>
                   <li class="d-flex justify-content-between">
                     <strong>{{ __('Property Type') }}:</strong>
-                    <span>{{ $property->type }}</span>
+                    <span>{{ $property->type->name }}</span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <strong>{{ __('Status') }}:</strong>

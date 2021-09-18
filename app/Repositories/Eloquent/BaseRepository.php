@@ -99,4 +99,18 @@ class BaseRepository implements EloquentRepositoryInterface
     {
         return $this->findTrashedById($modelId)->forceDelete();
     }
+
+    /**
+     * Return random model id
+     *
+     *
+     * @return int
+     */
+    public function randomId(): int
+    {
+        $allModelIds = $this->model->get(['id']);
+        $numberOfModels = $allModelIds->count();
+
+        return $allModelIds[rand(0, $numberOfModels - 1)]->id;
+    }
 }

@@ -4,12 +4,15 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Helpers\RandomAgentId;
+use App\Helpers\RandomStatusId;
+use App\Helpers\RandomTypeId;
 use App\Helpers\RandomPropertyTranslation;
 use App\Models\PropertyTranslation;
 use App\Models\AmenityProperty;
 use App\Models\Amenity;
 use App\Models\Property;
 use App\Models\Status;
+use App\Models\Type;
 use App\Helpers\RandomPropertyVerticalImage;
 
 class PropertyFactory extends Factory
@@ -67,21 +70,19 @@ class PropertyFactory extends Factory
      */
     public function definition()
     {
-        $status_ids = array_column(Status::select('id')->get()->toArray(), 'id');
-
         return [
-            'street_name' => $this->faker->streetName(),
-            'house_number' => $this->faker->buildingNumber(),
-            'city' => $this->faker->city(),
-            'price' => rand(150, 300) * 1000,
-            'type' => ["House", "Apartment", "Bungalov", "Villa"][rand(0,3)],
-            'area' => rand(120, 500),
-            'beds' => rand(1, 10),
-            'baths' => rand(1, 3),
-            'garage' => 1,
-            "rent" => rand(700, 3500),
-            "agent_id" => RandomAgentId::agent(),
-            "status_id" => $status_ids[rand(0, count($status_ids) - 1)],
+            'street_name'    => $this->faker->streetName(),
+            'house_number'   => $this->faker->buildingNumber(),
+            'city'           => $this->faker->city(),
+            'price'          => rand(150, 300) * 1000,
+            'area'           => rand(120, 500),
+            'beds'           => rand(1, 10),
+            'baths'          => rand(1, 3),
+            'garage'         => rand(1,2),
+            "rent"           => rand(700, 3500),
+            "agent_id"       => RandomAgentId::agent(),
+            "type_id"        => RandomTypeId::type(),
+            "status_id"      => RandomStatusId::status(),
             'vertical_image' => RandomPropertyVerticalImage::image()
         ];
     }
