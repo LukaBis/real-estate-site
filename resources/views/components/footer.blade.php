@@ -55,7 +55,7 @@
               @foreach($languages as $language)
               <li class="item-list-a">
                 <i class="fa fa-angle-right"></i> <a href="/{{ $language->iso }}">
-                  {{ $language->name }}</a>
+                  {{ strtoupper($language->iso) }}</a>
               </li>
               @endforeach
             </ul>
