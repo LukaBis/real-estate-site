@@ -7,6 +7,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Http\Request;
 
 /*
@@ -32,4 +33,5 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/agents', [AgentController::class, 'allAgents']);
     Route::get('/agent/{id}', [AgentController::class, 'singleAgent']);
     Route::get('/contact', [ContactController::class, 'contact']);
+    Route::get('/search', [SearchController::class, 'search']);
 });

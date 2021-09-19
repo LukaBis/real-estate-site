@@ -6,12 +6,13 @@
   </div>
   <span class="close-box-collapse right-boxed ion-ios-close"></span>
   <div class="box-collapse-wrap form">
-    <form class="form-a">
+    <form class="form-a" action="/{{ app()->currentLocale() }}/search" method="GET">
+      @csrf
       <div class="row">
         <div class="col-md-6 mb-2">
           <div class="form-group">
             <label for="Type">{{ __('Type') }}</label>
-            <select class="form-control form-control-lg form-control-a" id="Type">
+            <select name="type" class="form-control form-control-lg form-control-a" id="Type">
               <option>Any</option>
               @foreach($filters["types"] as $type)
               <option>{{ $type }}</option>
@@ -22,7 +23,7 @@
         <div class="col-md-6 mb-2">
           <div class="form-group">
             <label for="city">{{ __('City') }}</label>
-            <select class="form-control form-control-lg form-control-a" id="city">
+            <select name="city" class="form-control form-control-lg form-control-a" id="city">
               <option>Any</option>
               @foreach($filters["cities"] as $city)
               <option>{{ $city }}</option>
@@ -33,7 +34,7 @@
         <div class="col-md-6 mb-2">
           <div class="form-group">
             <label for="bedrooms">{{ __('Beds') }}</label>
-            <select class="form-control form-control-lg form-control-a" id="bedrooms">
+            <select name="beds" class="form-control form-control-lg form-control-a" id="bedrooms">
               <option>Any</option>
               @foreach($filters["beds"] as $bedNum)
               <option>{{ $bedNum }}</option>
@@ -44,7 +45,7 @@
         <div class="col-md-6 mb-2">
           <div class="form-group">
             <label for="garages">{{ __('Garages') }}</label>
-            <select class="form-control form-control-lg form-control-a" id="garages">
+            <select name="garages" class="form-control form-control-lg form-control-a" id="garages">
               <option>Any</option>
               @foreach($filters["garages"] as $garageNum)
               <option>{{ $garageNum }}</option>
@@ -55,7 +56,7 @@
         <div class="col-md-6 mb-2">
           <div class="form-group">
             <label for="bathrooms">{{ __('Bathrooms') }}</label>
-            <select class="form-control form-control-lg form-control-a" id="bathrooms">
+            <select name="bathrooms" class="form-control form-control-lg form-control-a" id="bathrooms">
               <option>Any</option>
               @foreach($filters["baths"] as $bathNum)
               <option>{{ $bathNum }}</option>
@@ -66,7 +67,7 @@
         <div class="col-md-6 mb-2">
           <div class="form-group">
             <label for="price">{{ __('Min Price') }}</label>
-            <input type="text" name="" value="" id="price" placeholder="Unlimited" class="form-control form-control-lg form-control-a">
+            <input type="text" name="minPrice" value="" id="price" placeholder="Unlimited" class="form-control form-control-lg form-control-a">
           </div>
         </div>
         <div class="col-md-12">

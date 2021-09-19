@@ -10,5 +10,6 @@ interface PropertyRepositoryInterface extends EloquentRepositoryInterface
     public function paginate_filtered_results(int $per_pages, $request): LengthAwarePaginator;
     public function allCities(): array;
     public function allBedsNumbers(): array;
+    public function allGarageNumbers(): array;
     public function allBathsNumbers(): array;
 }
