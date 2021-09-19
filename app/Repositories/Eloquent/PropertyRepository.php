@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Property;
+use App\Models\TypeTranslation;
 use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
@@ -31,9 +32,41 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
                            ->when($request->status, function ($query, $status) {
                                        return $query->where("status_id", $status);
                                    })
+                           ->when($request->type, function ($query, $type) {
+
+                                       $type_id = TypeTranslation::where([
+                                         ['locale', app()->currentLocale()],
+                                         ['name', $type]
+                                       ])->get('type_id')->toArray()[0]['type_id'];
+
+                                       return $query->where('type_id', $type_id);
+                                   })
+                           ->when($request->city, function ($query, $city) {
+                                       return $query->where("city", $city);
+                                   })
+                           ->when($request->beds, function ($query, $beds) {
+                                       return $query->where("beds", $beds);
+                                   })
+                           ->when($request->garages, function ($query, $garages) {
+                                       return $query->where("garage", $garages);
+                                   })
+                           ->when($request->bathrooms, function ($query, $baths) {
+                                       return $query->where("baths", $baths);
+                                   })
+                           ->when($request->minPrice, function ($query, $price) {
+                                       return $query->where("price", '>', $price);
+                                   })
                            ->paginate($per_pages);
 
-         $properties->appends(['status' => $request->status]);
+         $properties->appends([
+           'status'    => $request->status,
+           'type'      => $request->type,
+           'city'      => $request->city,
+           'beds'      => $request->beds,
+           'garages'   => $request->garages,
+           'bathrooms' => $request->bathrooms,
+           'minPrice'  => $request->minPrice
+         ]);
 
          return $properties;
     }

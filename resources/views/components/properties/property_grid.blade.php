@@ -25,6 +25,11 @@
           </form>
         </div>
       </div>
+
+      @if($properties->count() == 0)
+        <p>{{ __('No results for this search') }}</p>
+      @endif
+
       @foreach($properties as $property)
       <div class="col-md-4">
         <div class="card-box-a card-shadow">

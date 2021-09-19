@@ -66,7 +66,7 @@
         </div>
         <div class="col-md-6 mb-2">
           <div class="form-group">
-            <label for="price">{{ __('Min Price') }}</label>
+            <label for="price">{{ __('Min Price') }} (USD)</label>
             <input type="text" name="minPrice" value="" id="price" placeholder="Unlimited" class="form-control form-control-lg form-control-a">
           </div>
         </div>
