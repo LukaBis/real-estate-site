@@ -16,9 +16,9 @@
           <div class="w-footer-a">
             <ul class="list-unstyled">
               <li class="color-a">
-                <span class="color-text-a">{{ __('Email') }} .</span> contact@example.com</li>
+                <span class="color-text-a">{{ __('Email') }} .</span> {{ $contact->email }}</li>
               <li class="color-a">
-                <span class="color-text-a">{{ __('Phone') }} .</span> +54 356 945234</li>
+                <span class="color-text-a">{{ __('Phone') }} .</span> {{ $contact->phone }}</li>
             </ul>
           </div>
         </div>
@@ -35,7 +35,10 @@
                   <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
                 </li>
                 <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">{{ __('Agents') }}</a>
+                  <i class="fa fa-angle-right"></i>
+                  <a href="/{{ app()->currentLocale() }}/agents">
+                    {{ __('Agents') }}
+                  </a>
                 </li>
                 <li class="item-list-a">
                   <i class="fa fa-angle-right"></i> <a href="/{{ app()->getLocale() }}/about">{{ __('About') }}</a>
@@ -86,7 +89,9 @@
               <a href="/{{ app()->currentLocale() }}/properties">{{ __('Property') }}</a>
             </li>
             <li class="list-inline-item">
-              <a href="#">{{ __('Contact') }}</a>
+              <a href="/{{ app()->currentLocale() }}/contact">
+                {{ __('Contact') }}
+              </a>
             </li>
           </ul>
         </nav>

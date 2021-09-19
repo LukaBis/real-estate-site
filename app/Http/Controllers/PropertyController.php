@@ -8,26 +8,31 @@ use App\Repositories\PropertyRepositoryInterface;
 use App\Repositories\StatusTranslationRepositoryInterface;
 use App\Http\Requests\FilterRequest;
 use App\Http\Requests\SinglePropertyRequest;
+use App\Repositories\ContactRepositoryInterface;
 
 class PropertyController extends Controller
 {
     private $languageRepository;
     private $propertyRepository;
     private $statusTranslationRepository;
+    private $contactRepository;
 
     public function __construct(
       LanguageRepositoryInterface $languageRepository,
       PropertyRepositoryInterface $propertyRepository,
-      StatusTranslationRepositoryInterface $statusTranslationRepository
+      StatusTranslationRepositoryInterface $statusTranslationRepository,
+      ContactRepositoryInterface $contactRepository
       ) {
         $this->languageRepository          = $languageRepository;
         $this->propertyRepository          = $propertyRepository;
         $this->statusTranslationRepository = $statusTranslationRepository;
+        $this->contactRepository           = $contactRepository;
     }
 
     public function allProperties(FilterRequest $request)
     {
         $languages  = $this->languageRepository->all();
+        $contact    = $this->contactRepository->all();
         $statuses   = $this->statusTranslationRepository->getAllDifferentStatuses(
           app()->currentLocale()
         );
@@ -40,13 +45,15 @@ class PropertyController extends Controller
           'languages'             => $languages,
           'properties'            => $properties,
           'statuses'              => $statuses,
-          'current_status_filter' => $request->status
+          'current_status_filter' => $request->status,
+          'contact'               => $contact[0]
         ]);
     }
 
     public function singleProperty(SinglePropertyRequest $request)
     {
         $languages = $this->languageRepository->all();
+        $contact   = $this->contactRepository->all();
         $property  = $this->propertyRepository->findById(
           $request->id,
           ['*'],
@@ -55,7 +62,8 @@ class PropertyController extends Controller
 
         return view('single-property', [
           'languages' => $languages,
-          'property'  => $property
+          'property'  => $property,
+          'contact'   => $contact[0]
         ]);
     }
 }

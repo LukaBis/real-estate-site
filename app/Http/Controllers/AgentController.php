@@ -6,34 +6,41 @@ use Illuminate\Http\Request;
 use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\AgentRepositoryInterface;
 use App\Http\Requests\SingleAgentRequest;
+use App\Repositories\ContactRepositoryInterface;
 
 class AgentController extends Controller
 {
     private $languageRepository;
     private $agentRepository;
+    private $contactRepository;
 
     public function __construct(
         LanguageRepositoryInterface $languageRepository,
-        AgentRepositoryInterface $agentRepository
+        AgentRepositoryInterface $agentRepository,
+        ContactRepositoryInterface $contactRepository
       ) {
         $this->languageRepository = $languageRepository;
         $this->agentRepository    = $agentRepository;
+        $this->contactRepository  = $contactRepository;
     }
 
     public function allAgents()
     {
         $languages  = $this->languageRepository->all();
         $agents     = $this->agentRepository->paginated_results(3);
+        $contact    = $this->contactRepository->all();
 
         return view('agents',[
           'languages' => $languages,
-          'agents'    => $agents
+          'agents'    => $agents,
+          'contact'   => $contact[0]
         ]);
     }
 
     public function singleAgent(SingleAgentRequest $request)
     {
         $languages  = $this->languageRepository->all();
+        $contact    = $this->contactRepository->all();
         $agent      = $this->agentRepository->findById(
           $request->id,
           ['*'],
@@ -42,7 +49,8 @@ class AgentController extends Controller
 
         return view('single-agent',[
           'languages' => $languages,
-          'agent'     => $agent
+          'agent'     => $agent,
+          'contact'   => $contact[0]
         ]);
     }
 }

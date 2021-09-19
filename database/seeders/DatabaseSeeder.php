@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call([
             LanguageSeeder::class,
             AgentSeeder::class,
@@ -22,7 +21,8 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             PropertySeeder::class,
             TestemonialSeeder::class,
-            AboutSeeder::class
+            AboutSeeder::class,
+            ContactsSeeder::class
         ]);
     }
 }

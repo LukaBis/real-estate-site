@@ -14,6 +14,7 @@ use App\Repositories\AboutRepositoryInterface;
 use App\Repositories\StatusRepositoryInterface;
 use App\Repositories\StatusTranslationRepositoryInterface;
 use App\Repositories\TypeRepositoryInterface;
+use App\Repositories\ContactRepositoryInterface;
 
 use App\Repositories\Eloquent\BaseRepository;
 use App\Repositories\Eloquent\LanguageRepository;
@@ -25,6 +26,7 @@ use App\Repositories\Eloquent\AboutRepository;
 use App\Repositories\Eloquent\StatusRepository;
 use App\Repositories\Eloquent\StatusTranslationRepository;
 use App\Repositories\Eloquent\TypeRepository;
+use App\Repositories\Eloquent\ContactRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -45,6 +47,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(StatusRepositoryInterface::class, StatusRepository::class);
         $this->app->bind(StatusTranslationRepositoryInterface::class, StatusTranslationRepository::class);
         $this->app->bind(TypeRepositoryInterface::class, TypeRepository::class);
+        $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
     }
 
     /**

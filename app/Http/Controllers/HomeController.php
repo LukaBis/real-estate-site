@@ -8,6 +8,7 @@ use App\Repositories\AgentRepositoryInterface;
 use App\Repositories\PropertyRepositoryInterface;
 use App\Repositories\TestemonialRepositoryInterface;
 use App\Helpers\ArrayOfAgents;
+use App\Repositories\ContactRepositoryInterface;
 
 class HomeController extends Controller
 {
@@ -15,22 +16,26 @@ class HomeController extends Controller
     private $agentRepository;
     private $propertyRepository;
     private $testemonialRepository;
+    private $contactRepository;
 
     public function __construct(
       LanguageRepositoryInterface $languageRepository,
       AgentRepositoryInterface $agentRepository,
       PropertyRepositoryInterface $propertyRepository,
-      TestemonialRepositoryInterface $testemonialRepository
+      TestemonialRepositoryInterface $testemonialRepository,
+      ContactRepositoryInterface $contactRepository
       ) {
         $this->languageRepository    = $languageRepository;
         $this->agentRepository       = $agentRepository;
         $this->propertyRepository    = $propertyRepository;
         $this->testemonialRepository = $testemonialRepository;
+        $this->contactRepository     = $contactRepository;
     }
 
     public function homePage()
     {
         $languages  = $this->languageRepository->all();
+        $contact    = $this->contactRepository->all();
         $properties = $this->propertyRepository->all(
           $columns   = ['*'],
           $relations = ['images']
@@ -48,7 +53,8 @@ class HomeController extends Controller
           'languages'    => $languages,
           'properties'   => $properties,
           'agents'       => $agents,
-          'testemonials' => $testemonials
+          'testemonials' => $testemonials,
+          'contact'      => $contact[0]
         ]);
     }
 }
