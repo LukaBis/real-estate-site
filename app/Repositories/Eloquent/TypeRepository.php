@@ -22,4 +22,15 @@ class TypeRepository extends BaseRepository implements TypeRepositoryInterface
         $this->model = $model;
     }
 
+    public function allTypesInArray(): array
+    {
+        $arr = [];
+
+        foreach(Type::all() as $type) {
+          array_push($arr, $type->translate(app()->currentLocale())->name);
+        }
+
+        return $arr;
+    }
+
 }

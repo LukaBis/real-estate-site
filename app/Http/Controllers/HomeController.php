@@ -9,6 +9,7 @@ use App\Repositories\PropertyRepositoryInterface;
 use App\Repositories\TestemonialRepositoryInterface;
 use App\Helpers\ArrayOfAgents;
 use App\Repositories\ContactRepositoryInterface;
+use App\Repositories\TypeRepositoryInterface;
 
 class HomeController extends Controller
 {
@@ -17,19 +18,22 @@ class HomeController extends Controller
     private $propertyRepository;
     private $testemonialRepository;
     private $contactRepository;
+    private $typeRepository;
 
     public function __construct(
       LanguageRepositoryInterface $languageRepository,
       AgentRepositoryInterface $agentRepository,
       PropertyRepositoryInterface $propertyRepository,
       TestemonialRepositoryInterface $testemonialRepository,
-      ContactRepositoryInterface $contactRepository
+      ContactRepositoryInterface $contactRepository,
+      TypeRepositoryInterface $typeRepository
       ) {
         $this->languageRepository    = $languageRepository;
         $this->agentRepository       = $agentRepository;
         $this->propertyRepository    = $propertyRepository;
         $this->testemonialRepository = $testemonialRepository;
         $this->contactRepository     = $contactRepository;
+        $this->typeRepository        = $typeRepository;
     }
 
     public function homePage()
@@ -43,6 +47,14 @@ class HomeController extends Controller
         $agents       = $this->agentRepository->all();
         $testemonials = $this->testemonialRepository->all();
 
+        $filters = [
+          "types"   => $this->typeRepository->allTypesInArray(),
+          "cities"  => $this->propertyRepository->allCities(),
+          "beds"    => $this->propertyRepository->allBedsNumbers(),
+          "garages" => $this->propertyRepository->allGarageNumbers(),
+          "baths"   => $this->propertyRepository->allBathsNumbers(),
+        ];
+
         // we'll take only 3 properties
         $properties = $properties->slice(0,3);
 
@@ -54,7 +66,8 @@ class HomeController extends Controller
           'properties'   => $properties,
           'agents'       => $agents,
           'testemonials' => $testemonials,
-          'contact'      => $contact[0]
+          'contact'      => $contact[0],
+          'filters'      => $filters
         ]);
     }
 }

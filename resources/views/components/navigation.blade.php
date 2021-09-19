@@ -47,7 +47,9 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/{{ app()->getLocale() }}/contact">
+          <a
+          class="nav-link nav-link @if(Request::segment(2) == 'contact') active @endif" 
+          href="/{{ app()->getLocale() }}/contact">
             {{ __('Contact') }}
           </a>
         </li>

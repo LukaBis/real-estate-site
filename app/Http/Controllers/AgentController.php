@@ -7,21 +7,29 @@ use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\AgentRepositoryInterface;
 use App\Http\Requests\SingleAgentRequest;
 use App\Repositories\ContactRepositoryInterface;
+use App\Repositories\TypeRepositoryInterface;
+use App\Repositories\PropertyRepositoryInterface;
 
 class AgentController extends Controller
 {
     private $languageRepository;
     private $agentRepository;
     private $contactRepository;
+    private $typeRepository;
+    private $propertyRepository;
 
     public function __construct(
         LanguageRepositoryInterface $languageRepository,
         AgentRepositoryInterface $agentRepository,
-        ContactRepositoryInterface $contactRepository
+        ContactRepositoryInterface $contactRepository,
+        TypeRepositoryInterface $typeRepository,
+        PropertyRepositoryInterface $propertyRepository
       ) {
         $this->languageRepository = $languageRepository;
         $this->agentRepository    = $agentRepository;
         $this->contactRepository  = $contactRepository;
+        $this->typeRepository     = $typeRepository;
+        $this->propertyRepository = $propertyRepository;
     }
 
     public function allAgents()
@@ -30,10 +38,19 @@ class AgentController extends Controller
         $agents     = $this->agentRepository->paginated_results(3);
         $contact    = $this->contactRepository->all();
 
+        $filters = [
+          "types"   => $this->typeRepository->allTypesInArray(),
+          "cities"  => $this->propertyRepository->allCities(),
+          "beds"    => $this->propertyRepository->allBedsNumbers(),
+          "garages" => $this->propertyRepository->allGarageNumbers(),
+          "baths"   => $this->propertyRepository->allBathsNumbers(),
+        ];
+
         return view('agents',[
           'languages' => $languages,
           'agents'    => $agents,
-          'contact'   => $contact[0]
+          'contact'   => $contact[0],
+          'filters'   => $filters
         ]);
     }
 
@@ -47,10 +64,19 @@ class AgentController extends Controller
           ['properties']
         );
 
+        $filters = [
+          "types"   => $this->typeRepository->allTypesInArray(),
+          "cities"  => $this->propertyRepository->allCities(),
+          "beds"    => $this->propertyRepository->allBedsNumbers(),
+          "garages" => $this->propertyRepository->allGarageNumbers(),
+          "baths"   => $this->propertyRepository->allBathsNumbers(),
+        ];
+
         return view('single-agent',[
           'languages' => $languages,
           'agent'     => $agent,
-          'contact'   => $contact[0]
+          'contact'   => $contact[0],
+          'filters'   => $filters
         ]);
     }
 }

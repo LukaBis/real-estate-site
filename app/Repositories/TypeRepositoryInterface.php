@@ -2,4 +2,7 @@
 
 namespace App\Repositories;
 
-interface TypeRepositoryInterface extends EloquentRepositoryInterface {}
+interface TypeRepositoryInterface extends EloquentRepositoryInterface
+{
+    public function allTypesInArray(): array;
+}
