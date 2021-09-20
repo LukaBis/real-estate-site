@@ -31,11 +31,11 @@ class FilterRequest extends FormRequest
      */
     protected function prepareForValidation()
     {
-         if ($this->status == "All")    $this->merge([ 'status' => null ]);
-         if ($this->type == "Any")      $this->merge([ 'type' => null ]);
-         if ($this->city == "Any")      $this->merge([ 'city' => null ]);
-         if ($this->beds == "Any")      $this->merge([ 'beds' => null ]);
-         if ($this->garages == "Any")   $this->merge([ 'garages' => null ]);
+         if ($this->status == "All") $this->merge([ 'status' => null ]);
+         if ($this->type == "Any") $this->merge([ 'type' => null ]);
+         if ($this->city == "Any") $this->merge([ 'city' => null ]);
+         if ($this->beds == "Any") $this->merge([ 'beds' => null ]);
+         if ($this->garages == "Any") $this->merge([ 'garages' => null ]);
          if ($this->bathrooms == "Any") $this->merge([ 'bathrooms' => null ]);
     }
 
