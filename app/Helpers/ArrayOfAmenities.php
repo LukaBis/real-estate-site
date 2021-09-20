@@ -49,7 +49,7 @@ class ArrayOfAmenities {
           ],
           [
             "en" => ["name" => "Mini-fridge"],
-            "en" => ["name" => "Mini-frižider"]
+            "hrv" => ["name" => "Mini-frižider"]
           ],
           [
             "en" => ["name" => "Complimentary Electronics Chargers"],
