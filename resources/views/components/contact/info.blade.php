@@ -13,7 +13,7 @@
       <div class="col-sm-12 section-t8">
         <div class="row">
           <div class="col-md-7">
-            <form class="form-a contactForm" action="" method="post" role="form">
+            <form class="form-a contactForm">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
               <div class="row">
