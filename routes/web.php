@@ -25,6 +25,10 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 });
 
+Route::get('/home', function () {
+    return view('adminpanel.properties');
+})->middleware(['verified']);
+
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/', [HomeController::class, 'homePage']);
     Route::get('/about', [AboutController::class, 'aboutPage']);

@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             PropertySeeder::class,
             TestemonialSeeder::class,
             AboutSeeder::class,
-            ContactsSeeder::class
+            ContactsSeeder::class,
+            UserSeeder::class
         ]);
     }
 }
