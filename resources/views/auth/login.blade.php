@@ -27,7 +27,7 @@
               @csrf
 		      		<div class="form-group">
 		      			<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
-		      			<input name="email" type="text" class="form-control rounded-left" placeholder="Username" required>
+		      			<input name="email" type="text" class="form-control rounded-left" placeholder="Email" required>
 		      		</div>
 	            <div class="form-group">
 	            	<div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>

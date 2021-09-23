@@ -25,7 +25,8 @@ class UserSeeder extends Seeder
         $this->userRepository->create([
           'name' => 'admin',
           'email' => 'admin@email.com',
-          'password' => Hash::make('123456789')
+          'password' => Hash::make('123456789'),
+          'email_verified_at' => now()
         ]);
     }
 }
