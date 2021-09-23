@@ -8,6 +8,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\DashboardPropertyController;
 use Illuminate\Http\Request;
 
 /*
@@ -25,9 +26,12 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 });
 
-Route::get('/home', function () {
-    return view('adminpanel.properties');
-})->middleware(['verified']);
+Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
+    Route::get('/', function() {
+      return redirect('/home/properties');
+    });
+    Route::get('/properties', [DashboardPropertyController::class, 'allProperties']);
+});
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
     Route::get('/', [HomeController::class, 'homePage']);
