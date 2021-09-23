@@ -31,6 +31,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
       return redirect('/home/properties');
     });
     Route::get('/properties', [DashboardPropertyController::class, 'allProperties']);
+    Route::get('/property/{id}', [DashboardPropertyController::class, 'singleProperty']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
