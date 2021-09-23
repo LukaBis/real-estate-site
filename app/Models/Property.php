@@ -18,7 +18,7 @@ class Property extends Model
     use Translatable;
 
     public $translatedAttributes = ['description'];
-    // protected $fillable = [];
+
     protected $guarded = [];
 
     public function images()
@@ -44,6 +44,17 @@ class Property extends Model
     public function type()
     {
         return $this->belongsTo(Type::class);
+    }
+
+    public function hasThisAmenity(Amenity $amenity)
+    {
+        $relatedAmenityIds = array_column($this->amenities()->get(['amenity_id'])->toArray(), 'amenity_id');
+
+        if ( in_array($amenity->id, $relatedAmenityIds) ) {
+          return true;
+        }
+
+        return false;
     }
 
 }

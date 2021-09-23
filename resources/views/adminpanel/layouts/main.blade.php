@@ -11,6 +11,7 @@
     <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/libs/css/style.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+
 </head>
 
 <body>
@@ -99,6 +100,15 @@
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="/assets/libs/js/main-js.js"></script>
+    <script type="text/javascript">
+    // make textarea responsive to text inside
+    $('textarea').each(function () {
+      this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+    }).on('input', function () {
+      this.style.height = 'auto';
+      this.style.height = (this.scrollHeight) + 'px';
+    });
+    </script>
 </body>
 
 </html>
