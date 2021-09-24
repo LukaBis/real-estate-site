@@ -13,4 +13,5 @@ interface PropertyRepositoryInterface extends EloquentRepositoryInterface
     public function allGarageNumbers(): array;
     public function allBathsNumbers(): array;
     public function updateProperty($propertyId, $propertyData, $amenityIds): void;
+    public function verticalImageFilename($id): string;
 }

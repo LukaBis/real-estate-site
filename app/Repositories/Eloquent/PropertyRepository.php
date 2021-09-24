@@ -125,4 +125,9 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         }
     }
 
+    public function verticalImageFilename($id): string
+    {
+        return $this->model->find($id)->vertical_image;
+    }
+
 }

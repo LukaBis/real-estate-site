@@ -34,6 +34,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/property/{id}', [DashboardPropertyController::class, 'singleProperty']);
     Route::put('/property/{id}', [DashboardPropertyController::class, 'updateProperty']);
     Route::delete('/property', [DashboardPropertyController::class, 'deleteProperty']);
+    Route::put('/property/vertical-image/{id}', [DashboardPropertyController::class, 'updatePropertyVerticalImage']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
