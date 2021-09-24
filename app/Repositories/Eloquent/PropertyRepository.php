@@ -4,6 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use App\Models\Property;
 use App\Models\TypeTranslation;
+use App\Models\Amenity;
 use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
@@ -98,6 +99,30 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         $arr = array_column($this->model->distinct()->get('baths')->toArray(), 'baths');
         sort($arr);
         return $arr;
+    }
+
+    public function updateProperty($propertyId, $propertyData, $amenityIds): void
+    {
+        $this->model->find($propertyId)->update($propertyData);
+
+        // add new amenity if neccessary
+        foreach ($amenityIds as $amenityId) {
+          if (!$this->model->find($propertyId)->hasThisAmenity(Amenity::find($amenityId))) {
+            $this->model->find($propertyId)->amenities()->attach($amenityId);
+          }
+        }
+
+        // remove amenities if neccessary
+        $propertyAmenities = array_column(
+          $this->model->find($propertyId)->amenities()->get(['amenity_id'])->toArray(),
+          "amenity_id"
+        );
+
+        foreach ($propertyAmenities as $id) {
+          if (!in_array($id, $amenityIds)) {
+            $this->model->find($propertyId)->amenities()->detach($id);
+          }
+        }
     }
 
 }

@@ -12,4 +12,5 @@ interface PropertyRepositoryInterface extends EloquentRepositoryInterface
     public function allBedsNumbers(): array;
     public function allGarageNumbers(): array;
     public function allBathsNumbers(): array;
+    public function updateProperty($propertyId, $propertyData, $amenityIds): void;
 }

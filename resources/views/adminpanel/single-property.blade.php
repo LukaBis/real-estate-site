@@ -14,7 +14,30 @@
       <div class="card">
           <h5 class="card-header">{{ __('Property data') }}</h5>
           <div class="card-body">
-              <form id="validationform" data-parsley-validate="" novalidate="">
+              @if ($errors->any())
+                  <div class="alert alert-danger">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
+              @if(session()->has('successMessage'))
+                  <div class="alert alert-success">
+                      {{ session()->get('successMessage') }}
+                  </div>
+              @endif
+              <form id="property-form" data-parsley-validate="" novalidate=""
+              method="POST"
+              action="/home/property/{{ $property->id }}">
+              @csrf
+              @method('PUT')
+                  <div class="form-group">
+                    <div style="display:none">
+                      <input value="{{ $property->id }}" name="propertyId" class="form-control">
+                    </div>
+                  </div>
                   <div class="form-group row">
                       <label class="col-12 col-sm-3 col-form-label text-sm-right">{{ __('Street name') }}</label>
                       <div class="col-12 col-sm-8 col-lg-6">
@@ -75,11 +98,11 @@
                           <div class="custom-controls-stacked">
                             @foreach($statuses as $status)
                               <label class="custom-control custom-checkbox">
-                                  <input id="ck1"
+                                  <input
                                   @if($property->status_id == $status->status_id)
                                    checked
                                   @endif
-                                   name="status-id-{{$status->status_id}}" type="checkbox" data-parsley-multiple="groups" value="bar" data-parsley-mincheck="2" data-parsley-errors-container="#error-container1" class="custom-control-input">
+                                   name="status" type="radio" data-parsley-multiple="groups" value="{{$status->status_id}}" data-parsley-mincheck="2" data-parsley-errors-container="#error-container1" class="custom-control-input">
                                   <span class="custom-control-label">{{ $status->status }}</span>
                               </label>
                             @endforeach
@@ -93,11 +116,11 @@
                           <div class="custom-controls-stacked">
                             @foreach($types as $type)
                               <label class="custom-control custom-checkbox">
-                                  <input type="checkbox"
+                                  <input type="radio"
                                   @if($property->type_id == $type->id)
                                     checked
                                   @endif
-                                  value="type-id-{{$type->id}}" id="e1" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
+                                  value="{{$type->id}}" name="type" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
                                   <span class="custom-control-label">{{ $type->name }}</span>
                               </label>
                             @endforeach
@@ -115,7 +138,7 @@
                                   @if($property->agent_id == $agent->id)
                                     checked
                                   @endif
-                                  type="checkbox" value="agent-id-{{$agent->id}}" id="e1" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
+                                  type="radio" value="{{$agent->id}}" name="agent" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
                                   <span class="custom-control-label">{{ $agent->full_name }}</span>
                               </label>
                             @endforeach
@@ -143,7 +166,7 @@
                                   @if($property->hasThisAmenity($amenity))
                                   checked
                                   @endif
-                                  type="checkbox" value="amenity-id-{{$amenity->id}}" id="e1" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
+                                  type="checkbox" value="{{$amenity->id}}" name="amenity{{$amenity->id}}" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
                                   <span class="custom-control-label">{{ $amenity->name }}</span>
                               </label>
                             @endforeach
@@ -153,8 +176,17 @@
                   </div>
                   <div class="form-group row text-right">
                       <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
-                          <button type="submit" class="btn btn-space btn-primary">{{ __('Update') }}</button>
+                          <button
+                            type="button"
+                            class="btn btn-space btn-primary"
+                            data-toggle="modal" data-target="#updateModal"
+                          >
+                            {{ __('Update') }}
+                          </button>
                           <button class="btn btn-space btn-secondary">{{ __('Delete') }}</button>
+
+                          @include('adminpanel.components.update-pop-up')
+
                       </div>
                   </div>
               </form>
