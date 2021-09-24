@@ -32,7 +32,7 @@
             <div class="w-body-a">
               <ul class="list-unstyled">
                 <li class="item-list-a">
-                  <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                  <i class="fa fa-angle-right"></i> <a href="/login">Admin</a>
                 </li>
                 <li class="item-list-a">
                   <i class="fa fa-angle-right"></i>

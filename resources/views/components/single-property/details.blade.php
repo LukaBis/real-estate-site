@@ -90,6 +90,9 @@
             </div>
             <div class="amenities-list color-text-a">
               <ul class="list-a no-margin">
+                @if($property->amenities->count() == 0)
+                <p>{{ __('No amenities') }}</p>
+                @endif
                 @foreach($property->amenities as $amenity)
                   <li>{{ $amenity->name }}</li>
                 @endforeach
