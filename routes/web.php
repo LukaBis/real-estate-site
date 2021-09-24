@@ -33,6 +33,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/properties', [DashboardPropertyController::class, 'allProperties']);
     Route::get('/property/{id}', [DashboardPropertyController::class, 'singleProperty']);
     Route::put('/property/{id}', [DashboardPropertyController::class, 'updateProperty']);
+    Route::delete('/property', [DashboardPropertyController::class, 'deleteProperty']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

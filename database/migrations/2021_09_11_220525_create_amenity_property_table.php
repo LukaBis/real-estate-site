@@ -17,10 +17,10 @@ class CreateAmenityPropertyTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('amenity_id');
-            $table->foreign('amenity_id')->references('id')->on('amenities');
+            $table->foreign('amenity_id')->references('id')->on('amenities')->onDelete('cascade');
 
             $table->unsignedBigInteger('property_id');
-            $table->foreign('property_id')->references('id')->on('properties');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('cascade');
 
             $table->timestamps();
         });
