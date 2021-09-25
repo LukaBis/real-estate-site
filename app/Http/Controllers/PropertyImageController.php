@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Rules\Vertical;
 use App\Http\Requests\DeleteHorizontalImageRequest;
 use App\Repositories\PropertyHorizontalImageRepositoryInterface;
+use App\Http\Requests\AddHorizontalImageRequest;
 
 class PropertyImageController extends Controller
 {
@@ -62,5 +63,23 @@ class PropertyImageController extends Controller
         $this->horizontalImageRepository->deleteById($request->id);
 
         return redirect()->back()->with('successMessage', 'Image deleted successfully');
+    }
+
+    public function addPropertyHorizontalImage(AddHorizontalImageRequest $request)
+    {
+        // store image
+        $fileName = time().'_'.$request->horizontalImage->getClientOriginalName();
+
+        $path = $request->horizontalImage->storeAs(
+          '/property_images/horizontal_images', $fileName, 'images'
+        );
+
+        // store filename in database
+        $this->horizontalImageRepository->create([
+          "property_id" => $request->propertyId,
+          "filename"    => $fileName
+        ]);
+
+        return redirect()->back()->with('successMessage', 'Image saved successfully');
     }
 }

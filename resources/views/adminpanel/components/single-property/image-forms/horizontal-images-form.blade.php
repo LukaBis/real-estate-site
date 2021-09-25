@@ -54,3 +54,33 @@
 
 
 @endforeach
+
+<!-- Adding new image -->
+<form
+  class="mt-5"
+  action="/home/property/horizontal-image"
+  enctype="multipart/form-data"
+  method="post">
+  @csrf
+
+  <h3>Add new horizontal image</h3>
+
+  <div class="form-group row mt-3">
+    <div class="col-12">
+      <label for="horizontal-image">{{ __('Select a file') }}:</label><br>
+      <input type="file" id="horizontal-image" name="horizontalImage">
+      <input type="hidden" name="propertyId" value="{{ $property->id }}">
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-12">
+      <button
+      type="submit"
+      class="btn btn-space btn-primary">
+      {{ __('Add image') }}
+    </button>
+  </div>
+</div>
+
+</form>

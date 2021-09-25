@@ -156,7 +156,7 @@
               type="button"
               data-toggle="modal" data-target="#deleteModal"
               class="btn btn-space btn-secondary">
-              {{ __('Delete') }}
+              {{ __('Delete property') }}
             </button>
 
             @include('adminpanel.components.single-property.update-pop-up')
