@@ -14,6 +14,7 @@ use App\Repositories\AmenityRepositoryInterface;
 use App\Repositories\LanguageRepositoryInterface;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
+use App\Rules\Vertical;
 
 class DashboardPropertyController extends Controller
 {
@@ -124,7 +125,7 @@ class DashboardPropertyController extends Controller
     public function updatePropertyVerticalImage(Request $request)
     {
         $request->validate([
-          'verticalImage' => 'required|image',
+          'verticalImage' => ['required', 'image', new Vertical],
           'propertyId'    => [
             'required',
             Rule::in($this->propertyRepository->allIdsInOneDimensionalArray())
