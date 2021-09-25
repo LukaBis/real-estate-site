@@ -42,7 +42,6 @@
 <div class="row">
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <div class="card">
-          <h3 class="card-header">{{ __('Property images') }}</h3>
           <div class="card-body">
               @include('adminpanel.components.single-property.image-data-form')
           </div>

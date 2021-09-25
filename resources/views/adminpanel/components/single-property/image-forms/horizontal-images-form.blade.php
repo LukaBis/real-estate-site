@@ -1,24 +1,25 @@
 <div class="row mt-5">
   <div class="col-12">
-    <h5>{{ __('Horizontal images') }}</h5>
+    <h2>{{ __('Horizontal images') }}</h2>
   </div>
 </div>
 
-<form
-  action="/home/property/horizontal-images/{{ $property->id }}"
-  enctype="multipart/form-data"
-  method="post">
-  @csrf
-  @method('PUT')
-
-  <div class="row mt-3">
-    <div class="col-12">
-      <button
-      type="submit"
-      class="btn btn-space btn-primary">
-      {{ __('Save changes') }}
-    </button>
+@foreach($property->images as $image)
+<div class="row mt-4">
+  <div class="col-12 col-md-7">
+    <img src="{{ asset('images/property_images/horizontal_images/'.$image->filename) }}" alt="" class="img-fluid">
   </div>
 </div>
-
-</form>
+<div class="row mt-2">
+  <div class="col-12">
+    <form action="/home/property/horizontal-image" method="post">
+      @csrf
+      @method('delete')
+      <input type="hidden" name="id" value="{{ $image->id }}">
+      <button type="submit" name="button" class="btn btn-outline-danger">
+        Delete image
+      </button>
+    </form>
+  </div>
+</div>
+@endforeach

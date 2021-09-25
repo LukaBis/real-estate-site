@@ -22,4 +22,9 @@ class PropertyHorizontalImageRepository extends BaseRepository implements Proper
         $this->model = $model;
     }
 
+    public function getFilename($id)
+    {
+        return $this->model->find($id)->filename;
+    }
+
 }

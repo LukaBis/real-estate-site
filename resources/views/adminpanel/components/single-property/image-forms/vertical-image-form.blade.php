@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12">
-    <h5>{{ __('Vertical image dimensions') }} 600 x 800</h5>
+    <h2>{{ __('Vertical image') }}</h2>
   </div>
 </div>
 

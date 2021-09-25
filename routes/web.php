@@ -9,6 +9,7 @@ use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardPropertyController;
+use App\Http\Controllers\PropertyImageController;
 use Illuminate\Http\Request;
 
 /*
@@ -34,7 +35,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/property/{id}', [DashboardPropertyController::class, 'singleProperty']);
     Route::put('/property/{id}', [DashboardPropertyController::class, 'updateProperty']);
     Route::delete('/property', [DashboardPropertyController::class, 'deleteProperty']);
-    Route::put('/property/vertical-image/{id}', [DashboardPropertyController::class, 'updatePropertyVerticalImage']);
+    Route::put('/property/vertical-image/{id}', [PropertyImageController::class, 'updatePropertyVerticalImage']);
+    Route::delete('/property/horizontal-image', [PropertyImageController::class, 'deletePropertyHorizontalImage']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

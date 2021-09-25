@@ -52,10 +52,16 @@ class DashboardPropertyController extends Controller
 
     public function singleProperty(SinglePropertyRequest $request)
     {
-        $property = $this->propertyRepository->findById($request->id);
+        $property = $this->propertyRepository->findById(
+          $request->id,
+          $columns = ['*'],
+          $relations = ['images']
+        );
+
         $statuses = $this->statusTranslationRepository->getAllDifferentStatuses(
           app()->currentLocale()
         );
+
         $agents    = $this->agentRepository->all();
         $amenities = $this->amenityRepository->all();
         $languages = $this->languageRepository->all();
@@ -122,33 +128,4 @@ class DashboardPropertyController extends Controller
         return redirect('/home/properties')->with('successMessage', 'Deleted successfully');
     }
 
-    public function updatePropertyVerticalImage(Request $request)
-    {
-        $request->validate([
-          'verticalImage' => ['required', 'image', new Vertical],
-          'propertyId'    => [
-            'required',
-            Rule::in($this->propertyRepository->allIdsInOneDimensionalArray())
-          ]
-        ]);
-
-        // storing new file
-        $fileName = time().'_'.$request->verticalImage->getClientOriginalName();
-
-        $path = $request->verticalImage->storeAs(
-          '/property_images/vertical_images', $fileName, 'images'
-        );
-
-        // delete current vertical image
-        $oldImage = $this->propertyRepository->verticalImageFilename($request->propertyId);
-        Storage::disk('images')->delete('/property_images/vertical_images/'.$oldImage);
-
-        // update vertical_image column
-        $property = $this->propertyRepository->update(
-          $request->propertyId,
-          ["vertical_image" => $fileName]
-        );
-
-        return redirect()->back()->with('successMessage', 'Image updated successfully');
-    }
 }
