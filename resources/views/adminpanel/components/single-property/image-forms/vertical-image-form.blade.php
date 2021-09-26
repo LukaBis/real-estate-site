@@ -28,11 +28,11 @@
   <div class="row mt-3">
     <div class="col-12">
       <button
-      type="submit"
-      class="btn btn-space btn-primary">
-      {{ __('Change image') }}
-    </button>
+        type="submit"
+        class="btn btn-space btn-primary">
+        {{ __('Change image') }}
+      </button>
+    </div>
   </div>
-</div>
 
 </form>

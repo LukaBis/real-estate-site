@@ -2,8 +2,8 @@
 
 namespace App\Helpers;
 
-class RandomPropertyTranslation {
-
+class RandomPropertyTranslation
+{
     /**
     * Return property translated columns for testing purposes
     *

@@ -2,8 +2,8 @@
 
 namespace App\Helpers;
 
-class RandomPropertyHorizontalImage {
-
+class RandomPropertyHorizontalImage
+{
     public static function image()
     {
         $allPropertyHorizontalImages = \File::files('storage/images/property_images/horizontal_images');

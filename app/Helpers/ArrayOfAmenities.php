@@ -2,8 +2,8 @@
 
 namespace App\Helpers;
 
-class ArrayOfAmenities {
-
+class ArrayOfAmenities
+{
     public static function amenities()
     {
         $amenities = [

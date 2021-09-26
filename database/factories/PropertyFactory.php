@@ -13,7 +13,7 @@ use App\Models\Amenity;
 use App\Models\Property;
 use App\Models\Status;
 use App\Models\Type;
-use App\Helpers\RandomPropertyVerticalImage;
+use App\Helpers\GetPropertyVerticalImage;
 
 class PropertyFactory extends Factory
 {
@@ -83,7 +83,7 @@ class PropertyFactory extends Factory
             "agent_id"       => RandomAgentId::agent(),
             "type_id"        => RandomTypeId::type(),
             "status_id"      => RandomStatusId::status(),
-            'vertical_image' => RandomPropertyVerticalImage::image()
+            'vertical_image' => GetPropertyVerticalImage::image()
         ];
     }
 }

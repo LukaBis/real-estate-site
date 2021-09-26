@@ -2,8 +2,8 @@
 
 namespace App\Helpers;
 
-class GetAboutImage {
-
+class GetAboutImage
+{
     public static function horizontal()
     {
         $image = \File::files('storage/images/about_images/horizontal');
@@ -19,5 +19,4 @@ class GetAboutImage {
 
         return $filename;
     }
-
 }

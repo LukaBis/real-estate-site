@@ -14,16 +14,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            LanguageSeeder::class,
-            AgentSeeder::class,
-            AmenitySeeder::class,
-            StatusSeeder::class,
-            TypeSeeder::class,
-            PropertySeeder::class,
-            TestemonialSeeder::class,
-            AboutSeeder::class,
-            ContactsSeeder::class,
-            UserSeeder::class
+          LanguageSeeder::class,
+          AgentSeeder::class,
+          AmenitySeeder::class,
+          StatusSeeder::class,
+          TypeSeeder::class,
+          PropertySeeder::class,
+          TestemonialSeeder::class,
+          AboutSeeder::class,
+          ContactsSeeder::class,
+          UserSeeder::class
         ]);
     }
 }
