@@ -75,17 +75,19 @@
                                   {{ __('Properties') }}
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="/home/add-property">
+                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                  {{ __('Add Property') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
-        <!-- ============================================================== -->
         <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
         <!-- wrapper  -->
-        <!-- ============================================================== -->
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
                 @yield('content')

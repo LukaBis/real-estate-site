@@ -5,16 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\PropertyRepositoryInterface;
 use App\Repositories\StatusTranslationRepositoryInterface;
-use App\Http\Requests\SinglePropertyRequest;
 use App\Repositories\TypeRepositoryInterface;
 use App\Repositories\AgentRepositoryInterface;
 use App\Repositories\AmenityRepositoryInterface;
 use App\Repositories\LanguageRepositoryInterface;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Storage;
-use App\Rules\Vertical;
 
-class DashboardPropertyController extends Controller
+class AddPropertyController extends Controller
 {
     private $propertyRepository;
     private $statusTranslationRepository;
@@ -30,7 +26,7 @@ class DashboardPropertyController extends Controller
       AgentRepositoryInterface $agentRepository,
       AmenityRepositoryInterface $amenityRepository,
       LanguageRepositoryInterface $languageRepository
-    ) {
+      ) {
         $this->propertyRepository          = $propertyRepository;
         $this->statusTranslationRepository = $statusTranslationRepository;
         $this->typeRepository              = $typeRepository;
@@ -39,34 +35,17 @@ class DashboardPropertyController extends Controller
         $this->languageRepository          = $languageRepository;
     }
 
-    public function allProperties()
+    public function addPropertyView()
     {
-        $properties = $this->propertyRepository->all();
-
-        return view('adminpanel.properties', [
-          'properties' => $properties
-        ]);
-    }
-
-    public function singleProperty(SinglePropertyRequest $request)
-    {
-        $property = $this->propertyRepository->findById(
-          $request->id,
-          $columns = ['*'],
-          $relations = ['images']
-        );
-
         $statuses = $this->statusTranslationRepository->getAllDifferentStatuses(
           app()->currentLocale()
         );
-
         $agents    = $this->agentRepository->all();
         $amenities = $this->amenityRepository->all();
         $languages = $this->languageRepository->all();
         $types     = $this->typeRepository->all();
 
-        return view('adminpanel.single-property', [
-          'property'  => $property,
+        return view('adminpanel.add-property', [
           'statuses'  => $statuses,
           "types"     => $types,
           "agents"    => $agents,

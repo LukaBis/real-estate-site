@@ -10,6 +10,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardPropertyController;
 use App\Http\Controllers\PropertyImageController;
+use App\Http\Controllers\AddPropertyController;
+use App\Http\Controllers\UpdatePropertyController;
+use App\Http\Controllers\DeletePropertyController;
 use Illuminate\Http\Request;
 
 /*
@@ -33,11 +36,12 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     });
     Route::get('/properties', [DashboardPropertyController::class, 'allProperties']);
     Route::get('/property/{id}', [DashboardPropertyController::class, 'singleProperty']);
-    Route::put('/property/{id}', [DashboardPropertyController::class, 'updateProperty']);
-    Route::delete('/property', [DashboardPropertyController::class, 'deleteProperty']);
+    Route::put('/property/{id}', [UpdatePropertyController::class, 'updateProperty']);
+    Route::delete('/property', [DeletePropertyController::class, 'deleteProperty']);
     Route::put('/property/vertical-image/{id}', [PropertyImageController::class, 'updatePropertyVerticalImage']);
     Route::delete('/property/horizontal-image', [PropertyImageController::class, 'deletePropertyHorizontalImage']);
     Route::post('/property/horizontal-image', [PropertyImageController::class, 'addPropertyHorizontalImage']);
+    Route::get('/add-property', [AddPropertyController::class, 'addPropertyView']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
