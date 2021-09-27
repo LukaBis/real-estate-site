@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\PropertyHorizontalImage;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Helpers\RandomPropertyHorizontalImage;
+use App\Helpers\GetPropertyHorizontalImage;
 
 class PropertyHorizontalImageFactory extends Factory
 {
@@ -23,7 +23,7 @@ class PropertyHorizontalImageFactory extends Factory
     public function definition()
     {
         return [
-            "filename" => RandomPropertyHorizontalImage::image()
+            "filename" => GetPropertyHorizontalImage::image()
         ];
     }
 }

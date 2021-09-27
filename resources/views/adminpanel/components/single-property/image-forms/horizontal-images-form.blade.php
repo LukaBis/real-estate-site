@@ -67,7 +67,7 @@
 
   <div class="form-group row mt-3">
     <div class="col-12">
-      <label for="horizontal-image">{{ __('Select a file') }}:</label><br>
+      <label for="horizontal-image">{{ __('Select a file') }} (width 1900px):</label><br>
       <input type="file" id="horizontal-image" name="horizontalImage">
       <input type="hidden" name="propertyId" value="{{ $property->id }}">
     </div>

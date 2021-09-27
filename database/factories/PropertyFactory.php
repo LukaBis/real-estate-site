@@ -33,32 +33,29 @@ class PropertyFactory extends Factory
     {
         return $this->afterCreating(function (Property $property) {
 
-          // adding translation
-          $property_translations = RandomPropertyTranslation::translation();
+            // adding translation
+            $property_translations = RandomPropertyTranslation::translation();
 
-          foreach ($property_translations as $locale => $description) {
-              PropertyTranslation::create([
-                "property_id" => $property->id,
-                "locale" => $locale,
-                "description" => $description
+            foreach ($property_translations as $locale => $description) {
+                PropertyTranslation::create([
+                  "property_id" => $property->id,
+                  "locale" => $locale,
+                  "description" => $description
+                ]);
+            }
+
+            // adding amenities for this property
+            $numberOfAmenitiesPerProperty = 9;
+            $allAmenitiesIds = array_column(Amenity::select('id')->get()->toArray(),'id');
+
+            $random_keys = array_rand($allAmenitiesIds, $numberOfAmenitiesPerProperty);
+
+            for ($i = 0; $i < $numberOfAmenitiesPerProperty; $i++) {
+              AmenityProperty::create([
+                'property_id' => $property->id,
+                'amenity_id' => $allAmenitiesIds[$random_keys[$i]]
               ]);
-          }
-
-          // adding amenities for this property
-          $numberOfAmenitiesPerProperty = 9;
-
-          $allAmenitiesIds = array_column(Amenity::select('id')->get()->toArray(),'id');
-
-          // picking some_number of random Amenity ids
-          // this returns random keys of $allAmenitiesIds array
-          $random_keys = array_rand($allAmenitiesIds, $numberOfAmenitiesPerProperty);
-
-          for ($i = 0; $i < $numberOfAmenitiesPerProperty; $i++) {
-            AmenityProperty::create([
-              'property_id' => $property->id,
-              'amenity_id' => $allAmenitiesIds[$random_keys[$i]]
-            ]);
-          }
+            }
 
         });
     }
