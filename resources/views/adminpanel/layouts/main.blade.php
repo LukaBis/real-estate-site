@@ -81,6 +81,12 @@
                                   {{ __('Add Property') }}
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="/home/agents">
+                                  <i class="fa fa-user"></i>
+                                  {{ __('Agents') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

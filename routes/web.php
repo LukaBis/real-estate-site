@@ -13,6 +13,7 @@ use App\Http\Controllers\PropertyImageController;
 use App\Http\Controllers\AddPropertyController;
 use App\Http\Controllers\UpdatePropertyController;
 use App\Http\Controllers\DeletePropertyController;
+use App\Http\Controllers\DashboardAgentController;
 use Illuminate\Http\Request;
 
 /*
@@ -43,6 +44,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::post('/property/horizontal-image', [PropertyImageController::class, 'addPropertyHorizontalImage']);
     Route::get('/add-property', [AddPropertyController::class, 'addPropertyView']);
     Route::post('/add-property', [AddPropertyController::class, 'addProperty']);
+    Route::get('/agents', [DashboardAgentController::class, 'allAgents']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
