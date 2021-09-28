@@ -17,6 +17,7 @@ use App\Repositories\TypeRepositoryInterface;
 use App\Repositories\ContactRepositoryInterface;
 use App\Repositories\UserRepositoryInterface;
 use App\Repositories\PropertyHorizontalImageRepositoryInterface;
+use App\Repositories\AmenityPropertyRepositoryInterface;
 
 use App\Repositories\Eloquent\BaseRepository;
 use App\Repositories\Eloquent\LanguageRepository;
@@ -31,6 +32,7 @@ use App\Repositories\Eloquent\TypeRepository;
 use App\Repositories\Eloquent\ContactRepository;
 use App\Repositories\Eloquent\UserRepository;
 use App\Repositories\Eloquent\PropertyHorizontalImageRepository;
+use App\Repositories\Eloquent\AmenityPropertyRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -54,6 +56,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ContactRepositoryInterface::class, ContactRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(PropertyHorizontalImageRepositoryInterface::class, PropertyHorizontalImageRepository::class);
+        $this->app->bind(AmenityPropertyRepositoryInterface::class, AmenityPropertyRepository::class);
     }
 
     /**
