@@ -132,6 +132,6 @@ class AddPropertyController extends Controller
           ]);
         }
 
-        return "Saved";
+        return redirect('home/property/'.$newProperty->id)->with('successMessage', 'Saved successfully');
     }
 }
