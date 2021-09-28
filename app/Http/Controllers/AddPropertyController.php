@@ -9,6 +9,7 @@ use App\Repositories\TypeRepositoryInterface;
 use App\Repositories\AgentRepositoryInterface;
 use App\Repositories\AmenityRepositoryInterface;
 use App\Repositories\LanguageRepositoryInterface;
+use App\Http\Requests\AddNewPropertyRequest;
 
 class AddPropertyController extends Controller
 {
@@ -52,5 +53,10 @@ class AddPropertyController extends Controller
           "amenities" => $amenities,
           "languages" => $languages
         ]);
+    }
+
+    public function addProperty(AddNewPropertyRequest $request)
+    {
+        dd($request->horizontalImages);
     }
 }

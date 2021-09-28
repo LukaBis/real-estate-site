@@ -1,8 +1,3 @@
-    <div class="form-group">
-      <div style="display:none">
-        <input value="" name="propertyId" class="form-control">
-      </div>
-    </div>
     <div class="form-group row">
         <label class="col-12 col-sm-3 col-form-label text-sm-right">{{ __('Street name') }}</label>
         <div class="col-12 col-sm-8 col-lg-6">
@@ -116,8 +111,7 @@
     <div class="form-group row">
         <label class="col-12 col-sm-3 col-form-label text-sm-right">About ({{ strtoupper($language->iso) }})</label>
         <div class="col-12 col-sm-8 col-lg-6">
-            <textarea name="{{$language->iso}}-description" class="form-control">
-            </textarea>
+            <textarea name="{{$language->iso}}-description" class="form-control"></textarea>
         </div>
     </div>
     @endforeach
@@ -132,7 +126,7 @@
                     @if($amenities[0]->id == $amenity->id)
                     checked
                     @endif
-                    type="checkbox" value="{{$amenity->id}}" name="amenity" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
+                    type="checkbox" value="{{$amenity->id}}" name="amenity{{$amenity->id}}" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input">
                     <span class="custom-control-label">{{ $amenity->name }}</span>
                 </label>
               @endforeach

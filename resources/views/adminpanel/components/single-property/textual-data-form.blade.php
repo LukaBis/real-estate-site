@@ -120,9 +120,7 @@
     <div class="form-group row">
         <label class="col-12 col-sm-3 col-form-label text-sm-right">About ({{ strtoupper($language->iso) }})</label>
         <div class="col-12 col-sm-8 col-lg-6">
-            <textarea name="{{$language->iso}}-description" class="form-control">
-              {{ $property->translate($language->iso)->description }}
-            </textarea>
+            <textarea name="{{$language->iso}}-description" class="form-control">{{ $property->translate($language->iso)->description }}</textarea>
         </div>
     </div>
     @endforeach

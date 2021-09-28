@@ -42,6 +42,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::delete('/property/horizontal-image', [PropertyImageController::class, 'deletePropertyHorizontalImage']);
     Route::post('/property/horizontal-image', [PropertyImageController::class, 'addPropertyHorizontalImage']);
     Route::get('/add-property', [AddPropertyController::class, 'addPropertyView']);
+    Route::post('/add-property', [AddPropertyController::class, 'addProperty']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

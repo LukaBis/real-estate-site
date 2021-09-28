@@ -32,10 +32,16 @@
                   </div>
               @endif
 
-              <form id="property-form" data-parsley-validate="" novalidate=""
-                method="POST">
+              <form action="/home/add-property" method="POST" enctype="multipart/form-data">
                 @csrf
                   @include('adminpanel.components.add-property.textual-data')
+                  @include('adminpanel.components.add-property.vertical-image')
+                  @include('adminpanel.components.add-property.horizontal-images')
+                  <button
+                    class="mt-5 btn btn-primary"
+                    type="submit">
+                    Save property
+                  </button>
               </form>
 
           </div>
