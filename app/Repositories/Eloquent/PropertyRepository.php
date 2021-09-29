@@ -5,6 +5,7 @@ namespace App\Repositories\Eloquent;
 use App\Models\Property;
 use App\Models\TypeTranslation;
 use App\Models\Amenity;
+use App\Models\PropertyHorizontalImage;
 use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
@@ -130,4 +131,9 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         return $this->model->find($id)->vertical_image;
     }
 
+    public function allHorizontalImages($propertyId): array
+    {
+        $images = PropertyHorizontalImage::where('property_id', $propertyId)->get(["filename", "id"])->toArray();
+        return $images;
+    }
 }
