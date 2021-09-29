@@ -54,4 +54,9 @@ class AgentRepository extends BaseRepository implements AgentRepositoryInterface
           }
         }
     }
+
+    public function image($id): string
+    {
+        return Agent::find($id)->image;
+    }
 }

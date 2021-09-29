@@ -8,6 +8,7 @@ use App\Repositories\AgentRepositoryInterface;
 use App\Repositories\PropertyRepositoryInterface;
 use App\Http\Requests\UpdateAgentRequest;
 use App\Http\Requests\UpdateAgentImageRequest;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateAgentController extends Controller
 {
@@ -62,6 +63,22 @@ class UpdateAgentController extends Controller
 
     public function updateImage(UpdateAgentImageRequest $request)
     {
-        dd($request->image);
+        $fileName = time().'_'.$request->image->getClientOriginalName();
+
+        $path = $request->image->storeAs(
+          '/agent_images', $fileName, 'images'
+        );
+
+        // delete current agent image
+        $oldImage = $this->agentRepository->image($request->agentId);
+        Storage::disk('images')->delete('/agent_images/'.$oldImage);
+
+        // update image column
+        $this->agentRepository->update(
+          $request->agentId,
+          ["image" => $fileName]
+        );
+
+        return redirect()->back()->with('successMessage', 'Image updated successfully');
     }
 }
