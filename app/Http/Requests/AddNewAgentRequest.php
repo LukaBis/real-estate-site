@@ -3,24 +3,21 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Repositories\LanguageRepositoryInterface;
-use App\Repositories\AgentRepositoryInterface;
-use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Validation\Rule;
+use App\Rules\Vertical;
+use App\Repositories\PropertyRepositoryInterface;
+use App\Repositories\LanguageRepositoryInterface;
 
-class UpdateAgentRequest extends FormRequest
+class AddNewAgentRequest extends FormRequest
 {
     private $languageRepository;
-    private $agentRepository;
     private $propertyRepository;
 
     public function __construct(
       LanguageRepositoryInterface $languageRepository,
-      AgentRepositoryInterface $agentRepository,
       PropertyRepositoryInterface $propertyRepository
     ) {
         $this->languageRepository  = $languageRepository;
-        $this->agentRepository     = $agentRepository;
         $this->propertyRepository  = $propertyRepository;
     }
 
@@ -35,7 +32,7 @@ class UpdateAgentRequest extends FormRequest
           'phone' => str_replace(' ', '', $this->phone)
       ]);
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -44,10 +41,6 @@ class UpdateAgentRequest extends FormRequest
     public function rules()
     {
         $validationArray = [
-          "agentId" => [
-            "required",
-            Rule::in($this->agentRepository->allIdsInOneDimensionalArray())
-          ],
           "full_name" => ["required", "min:1", "max:50"],
           "phone" => ["required", "numeric", "digits_between:1,25"],
           "email" => ["required", "email"]
@@ -73,6 +66,8 @@ class UpdateAgentRequest extends FormRequest
             Rule::in($allPropertyIds)
           ];
         }
+
+        $validationArray["image"] = ["required", "image", new Vertical];
 
         return $validationArray;
     }

@@ -16,6 +16,7 @@ use App\Http\Controllers\DeletePropertyController;
 use App\Http\Controllers\DashboardAgentController;
 use App\Http\Controllers\UpdateAgentController;
 use App\Http\Controllers\DeleteAgentController;
+use App\Http\Controllers\AddAgentController;
 use Illuminate\Http\Request;
 
 /*
@@ -51,6 +52,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::put('/agent/image', [UpdateAgentController::class, 'updateImage']);
     Route::put('/agent/{id}', [UpdateAgentController::class, 'updateAgent']);
     Route::delete('/agent', [DeleteAgentController::class, 'deleteAgent']);
+    Route::get('/add-agent', [AddAgentController::class, 'addAgentView']);
+    Route::post('/agent', [AddAgentController::class, 'addAgent']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
