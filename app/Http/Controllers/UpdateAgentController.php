@@ -7,6 +7,7 @@ use App\Repositories\LanguageRepositoryInterface;
 use App\Repositories\AgentRepositoryInterface;
 use App\Repositories\PropertyRepositoryInterface;
 use App\Http\Requests\UpdateAgentRequest;
+use App\Http\Requests\UpdateAgentImageRequest;
 
 class UpdateAgentController extends Controller
 {
@@ -57,5 +58,10 @@ class UpdateAgentController extends Controller
         );
 
         return redirect()->back()->with('successMessage', 'Updated successfully');
+    }
+
+    public function updateImage(UpdateAgentImageRequest $request)
+    {
+        dd($request->image);
     }
 }

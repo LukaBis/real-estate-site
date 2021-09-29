@@ -47,6 +47,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::post('/add-property', [AddPropertyController::class, 'addProperty']);
     Route::get('/agents', [DashboardAgentController::class, 'allAgents']);
     Route::get('/agent/{id}', [DashboardAgentController::class, 'singleAgent']);
+    Route::put('/agent/image', [UpdateAgentController::class, 'updateImage']);
     Route::put('/agent/{id}', [UpdateAgentController::class, 'updateAgent']);
 });
 

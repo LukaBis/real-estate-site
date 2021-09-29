@@ -43,7 +43,7 @@
   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <div class="card">
           <div class="card-body">
-              <!-- include('adminpanel.components.single-agent.image-data-form') -->
+              @include('adminpanel.components.single-agent.image-data-form')
           </div>
       </div>
   </div>
