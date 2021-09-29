@@ -3,6 +3,7 @@
 namespace App\Repositories\Eloquent;
 
 use App\Models\Agent;
+use App\Models\Property;
 use App\Repositories\AgentRepositoryInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -28,4 +29,29 @@ class AgentRepository extends BaseRepository implements AgentRepositoryInterface
         return $this->model->paginate($per_pages);
     }
 
+    public function updateAgent($agentId, $agentData, $propertyIds)
+    {
+        $this->model->find($agentId)->update($agentData);
+
+        // add new property if neccessary
+        foreach ($propertyIds as $propertyId) {
+          if (!$this->model->find($agentId)->hasThisProperty(Property::find($propertyId))) {
+            $this->model->find($agentId)->properties()->save(Property::find($propertyId));
+          }
+        }
+
+        // remove properties if neccessary
+        $agentProperties = array_column(
+          $this->model->find($agentId)->properties()->get(['id'])->toArray(),
+          "id"
+        );
+
+        foreach ($agentProperties as $id) {
+          if (!in_array($id, $propertyIds)) {
+            $property = Property::find($id);
+            $property->agent_id = null;
+            $property->save();
+          }
+        }
+    }
 }

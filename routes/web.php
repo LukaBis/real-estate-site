@@ -14,6 +14,7 @@ use App\Http\Controllers\AddPropertyController;
 use App\Http\Controllers\UpdatePropertyController;
 use App\Http\Controllers\DeletePropertyController;
 use App\Http\Controllers\DashboardAgentController;
+use App\Http\Controllers\UpdateAgentController;
 use Illuminate\Http\Request;
 
 /*
@@ -45,6 +46,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/add-property', [AddPropertyController::class, 'addPropertyView']);
     Route::post('/add-property', [AddPropertyController::class, 'addProperty']);
     Route::get('/agents', [DashboardAgentController::class, 'allAgents']);
+    Route::get('/agent/{id}', [DashboardAgentController::class, 'singleAgent']);
+    Route::put('/agent/{id}', [UpdateAgentController::class, 'updateAgent']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

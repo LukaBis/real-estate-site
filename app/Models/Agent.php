@@ -20,4 +20,15 @@ class Agent extends Model
     {
         return $this->hasMany(Property::class);
     }
+
+    public function hasThisProperty(Property $property)
+    {
+        $relatedPropertyIds = array_column($this->properties()->get(['id'])->toArray(), 'id');
+        
+        if ( in_array($property->id, $relatedPropertyIds) ) {
+          return true;
+        }
+
+        return false;
+    }
 }
