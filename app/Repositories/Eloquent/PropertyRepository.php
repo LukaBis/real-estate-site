@@ -136,4 +136,9 @@ class PropertyRepository extends BaseRepository implements PropertyRepositoryInt
         $images = PropertyHorizontalImage::where('property_id', $propertyId)->get(["filename", "id"])->toArray();
         return $images;
     }
+
+    public function removeAgent($agentId): void
+    {
+        $this->model->where("agent_id", $agentId)->update(['agent_id' => null]);
+    }
 }

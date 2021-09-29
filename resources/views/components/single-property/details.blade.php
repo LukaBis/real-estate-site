@@ -102,6 +102,8 @@
         </div>
       </div>
 
+      <!-- Agent start -->
+      @if($property->agent)
       <div class="col-md-12">
         <div class="row section-t3">
           <div class="col-sm-12">
@@ -164,6 +166,8 @@
 
         </div>
       </div>
+      @endif
+      <!-- End agent -->
     </div>
   </div>
 </section>
