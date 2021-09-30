@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use  App\Http\Requests\SinglePropertyRequest;
+use  App\Http\Requests\SingleAgentRequest;
 use App\Repositories\AgentRepositoryInterface;
 use App\Repositories\PropertyRepositoryInterface;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +21,7 @@ class DeleteAgentController extends Controller
         $this->propertyRepository = $propertyRepository;
     }
 
-    public function deleteAgent(SinglePropertyRequest $request)
+    public function deleteAgent(SingleAgentRequest $request)
     {
         // delete agent's image
         $image = $this->agentRepository->image($request->id);

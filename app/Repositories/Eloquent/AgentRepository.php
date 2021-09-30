@@ -59,4 +59,13 @@ class AgentRepository extends BaseRepository implements AgentRepositoryInterface
     {
         return Agent::find($id)->image;
     }
+
+    public function createAgent($agentData, $choosenPropertyIds): void
+    {
+        $agent = $this->model->create($agentData);
+
+        foreach ($choosenPropertyIds as $propertyId) {
+          Property::find($propertyId)->update(["agent_id" => $agent->id]);
+        }
+    }
 }

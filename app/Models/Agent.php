@@ -24,11 +24,20 @@ class Agent extends Model
     public function hasThisProperty(Property $property)
     {
         $relatedPropertyIds = array_column($this->properties()->get(['id'])->toArray(), 'id');
-        
+
         if ( in_array($property->id, $relatedPropertyIds) ) {
           return true;
         }
 
         return false;
+    }
+
+    public function shortAbout()
+    {
+        if (strlen($this->about >= 90)) {
+          return substr($this->about, 0, 90);
+        } else {
+          return $this->about;
+        }
     }
 }

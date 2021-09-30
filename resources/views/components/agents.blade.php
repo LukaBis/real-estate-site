@@ -41,7 +41,7 @@
             </div>
             <div class="card-body-d">
               <p class="content-d color-text-a">
-                {{ explode(".", $agent->about)[0] . '.' . explode(".", $agent->about)[1] }}
+                {{ $agent->shortAbout() }}
               </p>
               <div class="info-agents color-a">
                 <p>
