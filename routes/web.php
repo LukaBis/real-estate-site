@@ -17,6 +17,7 @@ use App\Http\Controllers\DashboardAgentController;
 use App\Http\Controllers\UpdateAgentController;
 use App\Http\Controllers\DeleteAgentController;
 use App\Http\Controllers\AddAgentController;
+use App\Http\Controllers\TestemonialController;
 use Illuminate\Http\Request;
 
 /*
@@ -54,6 +55,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::delete('/agent', [DeleteAgentController::class, 'deleteAgent']);
     Route::get('/add-agent', [AddAgentController::class, 'addAgentView']);
     Route::post('/agent', [AddAgentController::class, 'addAgent']);
+    Route::get('/testemonials', [TestemonialController::class, 'allTestemonials']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

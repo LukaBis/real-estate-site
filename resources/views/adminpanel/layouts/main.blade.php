@@ -93,6 +93,12 @@
                                   {{ __('Add Agent') }}
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="/home/testemonials">
+                                  <i class="fa fa-child "></i>
+                                  {{ __('Testemonials') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
