@@ -7,6 +7,7 @@ use App\Repositories\TestemonialRepositoryInterface;
 use App\Repositories\LanguageRepositoryInterface;
 use App\Http\Requests\SingleTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialRequest;
+use App\Http\Requests\UpdateTestemonialBigImageRequest;
 
 class TestemonialController extends Controller
 {
@@ -58,5 +59,10 @@ class TestemonialController extends Controller
         $this->testemonialRepository->update($request->id, $testemonialData);
 
         return redirect()->back()->with('successMessage', 'Updated successfully');
+    }
+
+    public function updateBigImage(UpdateTestemonialBigImageRequest $request)
+    {
+        dd($request);
     }
 }

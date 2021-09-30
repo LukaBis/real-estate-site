@@ -56,6 +56,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/add-agent', [AddAgentController::class, 'addAgentView']);
     Route::post('/agent', [AddAgentController::class, 'addAgent']);
     Route::get('/testemonials', [TestemonialController::class, 'allTestemonials']);
+    Route::put('/testemonial/big-image', [TestemonialController::class, 'updateBigImage']);
     Route::get('/testemonial/{id}', [TestemonialController::class, 'singleTestemonial']);
     Route::put('/testemonial/{id}', [TestemonialController::class, 'updateTestemonial']);
 });
