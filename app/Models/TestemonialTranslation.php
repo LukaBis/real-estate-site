@@ -10,4 +10,5 @@ class TestemonialTranslation extends Model
     use HasFactory;
 
     protected $table = 'testemonial_translations';
+    protected $fillable = ["text"];
 }

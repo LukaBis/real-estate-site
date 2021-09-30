@@ -56,6 +56,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/add-agent', [AddAgentController::class, 'addAgentView']);
     Route::post('/agent', [AddAgentController::class, 'addAgent']);
     Route::get('/testemonials', [TestemonialController::class, 'allTestemonials']);
+    Route::get('/testemonial/{id}', [TestemonialController::class, 'singleTestemonial']);
+    Route::put('/testemonial/{id}', [TestemonialController::class, 'updateTestemonial']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

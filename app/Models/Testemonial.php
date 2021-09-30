@@ -13,4 +13,5 @@ class Testemonial extends Model
     use Translatable;
 
     public $translatedAttributes = ['text'];
+    protected $fillable = ["names"];
 }
