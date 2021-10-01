@@ -62,6 +62,7 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::put('/testemonial/{id}', [TestemonialController::class, 'updateTestemonial']);
     Route::get('/add-testemonial', [TestemonialController::class, 'addTestemonialView']);
     Route::post('/testemonial', [TestemonialController::class, 'addTestemonial']);
+    Route::delete('/testemonial', [TestemonialController::class, 'deleteTestemonial']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

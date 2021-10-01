@@ -117,6 +117,49 @@ class TestemonialController extends Controller
 
     public function addTestemonial(AddNewTestemonialRequest $request)
     {
-        dd($request);
+        // store new images
+        $bigImageName = time().'_'.$request["big-image"]->getClientOriginalName();
+        $path = $request["big-image"]->storeAs(
+          '/testemonial_images/', $bigImageName, 'images'
+        );
+
+        $miniImageName = time().'_'.$request["mini-image"]->getClientOriginalName();
+        $path = $request["mini-image"]->storeAs(
+          '/testemonial_images/mini/', $miniImageName, 'images'
+        );
+
+        $testemonialData = [
+          "names"               => $request->names,
+          "image_filename"      => $bigImageName,
+          "mini_image_filename" => $miniImageName
+        ];
+
+        // adding text translations
+        $languages = $this->languageRepository->all();
+        foreach ($languages as $language) {
+          $testemonialData[$language->iso] = [
+            "text" => $request[$language->iso.'-text']
+          ];
+        };
+
+        $this->testemonialRepository->create($testemonialData);
+
+        return redirect('/home/testemonials')->with('successMessage', 'Saved successfully');
+    }
+
+    public function deleteTestemonial(SingleTestemonialRequest $request)
+    {
+        // delete testemonial images
+        // delete big image
+        $bigImage = $this->testemonialRepository->BigImageFilename($request->id);
+        Storage::disk('images')->delete('/testemonial_images/'.$bigImage);
+        // delete mini image
+        $miniImage = $this->testemonialRepository->MiniImageFilename($request->id);
+        Storage::disk('images')->delete('/testemonial_images/mini/'.$miniImage);
+
+        // delete testemonial
+        $this->testemonialRepository->deleteById($request->id);
+
+        return redirect('/home/testemonials')->with('successMessage', 'Deleted successfully');
     }
 }
