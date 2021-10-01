@@ -26,10 +26,15 @@ class Vertical implements Rule
     public function passes($attribute, $file)
     {
         $image = getimagesize($file);
-        $width = $image[0];
-        $height = $image[1];
 
-        return ($width < $height);
+        if (is_array($image)) {
+          $width = $image[0];
+          $height = $image[1];
+
+          return ($width < $height);
+        }
+
+        return false;
     }
 
     /**

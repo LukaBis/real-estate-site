@@ -8,6 +8,7 @@ use App\Repositories\LanguageRepositoryInterface;
 use App\Http\Requests\SingleTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialBigImageRequest;
+use App\Http\Requests\UpdateTestemonialMiniImageRequest;
 use Illuminate\Support\Facades\Storage;
 
 class TestemonialController extends Controller
@@ -79,6 +80,28 @@ class TestemonialController extends Controller
         $this->testemonialRepository->update(
           $request->testemonialId,
           ["image_filename" => $fileName]
+        );
+
+        return redirect()->back()->with('successMessage', 'Image updated successfully');
+    }
+
+    public function updateMiniImage(UpdateTestemonialMiniImageRequest $request)
+    {
+        // delete current image
+        $oldImage = $this->testemonialRepository->MiniImageFilename($request->testemonialId);
+        Storage::disk('images')->delete('/testemonial_images/mini/'.$oldImage);
+
+        // store new image
+        $fileName = time().'_'.$request["mini-image"]->getClientOriginalName();
+
+        $path = $request["mini-image"]->storeAs(
+          '/testemonial_images/mini/', $fileName, 'images'
+        );
+
+        // update image column
+        $this->testemonialRepository->update(
+          $request->testemonialId,
+          ["mini_image_filename" => $fileName]
         );
 
         return redirect()->back()->with('successMessage', 'Image updated successfully');

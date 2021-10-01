@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class Horizontal implements Rule
+class MiniSquareImage implements Rule
 {
     /**
      * Create a new rule instance.
@@ -23,19 +23,22 @@ class Horizontal implements Rule
      * @param  mixed  $value
      * @return bool
      */
-     public function passes($attribute, $file)
-     {
-         $image = getimagesize($file);
+    public function passes($attribute, $file)
+    {
+        $image = getimagesize($file);
 
-         if (is_array($image)) {
-           $width = $image[0];
-           $height = $image[1];
+        if (is_array($image)) {
+          $width = $image[0];
+          $height = $image[1];
 
-           return ($width > $height);
-         }
+          $square = ($height == $width);
+          $mini = ($height < 100);
 
-         return false;
-     }
+          return ($square && $mini);
+        }
+
+        return false;
+    }
 
     /**
      * Get the validation error message.
@@ -44,6 +47,6 @@ class Horizontal implements Rule
      */
     public function message()
     {
-        return 'The :attribute must have horizontal dimensions.';
+        return 'Mini image needs to have same width and height and height needs to be less then 100px';
     }
 }
