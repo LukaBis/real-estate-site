@@ -9,6 +9,7 @@ use App\Http\Requests\SingleTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialBigImageRequest;
 use App\Http\Requests\UpdateTestemonialMiniImageRequest;
+use App\Http\Requests\AddNewTestemonialRequest;
 use Illuminate\Support\Facades\Storage;
 
 class TestemonialController extends Controller
@@ -105,5 +106,17 @@ class TestemonialController extends Controller
         );
 
         return redirect()->back()->with('successMessage', 'Image updated successfully');
+    }
+
+    public function addTestemonialView()
+    {
+        return view("adminpanel.add-testemonial", [
+          "languages" => $this->languageRepository->all()
+        ]);
+    }
+
+    public function addTestemonial(AddNewTestemonialRequest $request)
+    {
+        dd($request);
     }
 }

@@ -60,6 +60,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::put('/testemonial/mini-image', [TestemonialController::class, 'updateMiniImage']);
     Route::get('/testemonial/{id}', [TestemonialController::class, 'singleTestemonial']);
     Route::put('/testemonial/{id}', [TestemonialController::class, 'updateTestemonial']);
+    Route::get('/add-testemonial', [TestemonialController::class, 'addTestemonialView']);
+    Route::post('/testemonial', [TestemonialController::class, 'addTestemonial']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

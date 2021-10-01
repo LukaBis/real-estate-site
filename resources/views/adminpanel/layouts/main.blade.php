@@ -76,15 +76,21 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/add-property">
-                                  <i class="fa fa-plus" aria-hidden="true"></i>
-                                  {{ __('Add Property') }}
-                                </a>
-                            </li>
-                            <li class="nav-item ">
                                 <a class="nav-link active" href="/home/agents">
                                   <i class="fa fa-user"></i>
                                   {{ __('Agents') }}
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="/home/testemonials">
+                                  <i class="fa fa-child "></i>
+                                  {{ __('Testemonials') }}
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="/home/add-property">
+                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                  {{ __('Add Property') }}
                                 </a>
                             </li>
                             <li class="nav-item ">
@@ -94,9 +100,9 @@
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/testemonials">
-                                  <i class="fa fa-child "></i>
-                                  {{ __('Testemonials') }}
+                                <a class="nav-link active" href="/home/add-testemonial">
+                                  <i class="fa fa-plus" aria-hidden="true"></i>
+                                  {{ __('Add Testemonial') }}
                                 </a>
                             </li>
                         </ul>
