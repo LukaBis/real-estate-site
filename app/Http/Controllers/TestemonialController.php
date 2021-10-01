@@ -8,6 +8,7 @@ use App\Repositories\LanguageRepositoryInterface;
 use App\Http\Requests\SingleTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialRequest;
 use App\Http\Requests\UpdateTestemonialBigImageRequest;
+use Illuminate\Support\Facades\Storage;
 
 class TestemonialController extends Controller
 {
@@ -63,6 +64,23 @@ class TestemonialController extends Controller
 
     public function updateBigImage(UpdateTestemonialBigImageRequest $request)
     {
-        dd($request);
+        // delete current image
+        $oldImage = $this->testemonialRepository->BigImageFilename($request->testemonialId);
+        Storage::disk('images')->delete('/testemonial_images/'.$oldImage);
+
+        // store new image
+        $fileName = time().'_'.$request["big-image"]->getClientOriginalName();
+
+        $path = $request["big-image"]->storeAs(
+          '/testemonial_images/', $fileName, 'images'
+        );
+
+        // update image column
+        $this->testemonialRepository->update(
+          $request->testemonialId,
+          ["image_filename" => $fileName]
+        );
+
+        return redirect()->back()->with('successMessage', 'Image updated successfully');
     }
 }

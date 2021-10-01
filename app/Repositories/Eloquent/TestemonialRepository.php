@@ -22,4 +22,8 @@ class TestemonialRepository extends BaseRepository implements TestemonialReposit
         $this->model = $model;
     }
 
+    public function BigImageFilename($id)
+    {
+        return $this->model->find($id)->image_filename;
+    }
 }
