@@ -13,6 +13,7 @@ class About extends Model
     use Translatable;
 
     protected $table = 'about';
+    protected $fillable = ["horizontal_image", "vertical_image"];
 
     public $translatedAttributes = ['title', 'subtitle', 'text'];
 }

@@ -39,8 +39,13 @@ class AboutController extends Controller
     {
         $languages  = $this->languageRepository->all();
         $agents     = $this->agentRepository->all();
-        $about      = $this->aboutRepository->all()[0];
         $contact    = $this->contactRepository->all();
+
+        if (count($this->aboutRepository->allIdsInOneDimensionalArray())) {
+          $about = $this->aboutRepository->all()[0];
+        } else {
+          $about = null;
+        }
 
         // we'll take only 3 agents
         $agents = $agents->slice(0,3);

@@ -10,4 +10,5 @@ class AboutTranslation extends Model
     use HasFactory;
 
     protected $table = 'about_translations';
+    protected $fillable = ["title", "subtitle", "text"];
 }

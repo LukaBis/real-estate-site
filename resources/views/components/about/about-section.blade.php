@@ -2,7 +2,7 @@
 <section class="section-about">
   <div class="container">
     <div class="row">
-      @if($about->horizontal_image)
+      @if($about && $about->horizontal_image)
       <div class="col-sm-12">
         <div class="about-img-box">
           <img src="{{ asset('images/about_images/horizontal/'.$about->horizontal_image) }}" alt="" class="img-fluid">
@@ -17,7 +17,7 @@
       @endif
       <div class="col-md-12 section-t8">
         <div class="row">
-          @if($about->vertical_image)
+          @if($about && $about->vertical_image)
           <div class="col-md-6 col-lg-5">
             <img src="{{ asset('images/about_images/vertical/'.$about->vertical_image) }}" alt="" class="img-fluid">
           </div>
@@ -27,6 +27,7 @@
               <!-- <span>EstateAgency {{ __('Exclusive Property') }}</span> -->
             </div>
           </div>
+          @if($about)
           <div class="col-md-6 col-lg-5 section-md-t3">
             <div class="title-box-d">
               <h3 class="title-d">{{ $about->subtitle }}</h3>
@@ -37,6 +38,7 @@
               </p>
             @endforeach
           </div>
+          @endif
         </div>
       </div>
     </div>

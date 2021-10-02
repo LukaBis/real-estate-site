@@ -22,4 +22,15 @@ class AboutRepository extends BaseRepository implements AboutRepositoryInterface
         $this->model = $model;
     }
 
+    public function horizontalImageFilename()
+    {
+        // there is only one row
+        return $this->model->first()->horizontal_image;
+    }
+
+    public function verticalImageFilename()
+    {
+        // there is only one row
+        return $this->model->first()->vertical_image;
+    }
 }

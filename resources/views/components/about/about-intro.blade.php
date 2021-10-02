@@ -4,7 +4,11 @@
     <div class="row">
       <div class="col-md-12 col-lg-8">
         <div class="title-single-box">
-          <h1 class="title-single">{{ $about->title }}</h1>
+          <h1 class="title-single">
+          @if($about)
+            {{ $about->title }}
+          @endif
+          </h1>
         </div>
       </div>
       <div class="col-md-12 col-lg-4">
