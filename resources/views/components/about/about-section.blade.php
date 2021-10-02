@@ -2,9 +2,10 @@
 <section class="section-about">
   <div class="container">
     <div class="row">
+      @if($about->horizontal_image)
       <div class="col-sm-12">
         <div class="about-img-box">
-          <img src="/img/slide-about-1.jpg" alt="" class="img-fluid">
+          <img src="{{ asset('images/about_images/horizontal/'.$about->horizontal_image) }}" alt="" class="img-fluid">
         </div>
         <div class="sinse-box">
           <h3 class="sinse-title">EstateAgency
@@ -13,11 +14,14 @@
           <p>{{ __('Art & Creative') }}</p>
         </div>
       </div>
+      @endif
       <div class="col-md-12 section-t8">
         <div class="row">
+          @if($about->vertical_image)
           <div class="col-md-6 col-lg-5">
-            <img src="/img/about-2.jpg" alt="" class="img-fluid">
+            <img src="{{ asset('images/about_images/vertical/'.$about->vertical_image) }}" alt="" class="img-fluid">
           </div>
+          @endif
           <div class="col-lg-2  d-none d-lg-block">
             <div class="title-vertical d-flex justify-content-start">
               <!-- <span>EstateAgency {{ __('Exclusive Property') }}</span> -->

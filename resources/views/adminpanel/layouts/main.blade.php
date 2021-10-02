@@ -70,39 +70,59 @@
                                 {{ __('Menu') }}
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/properties">
+                                <a
+                                  class="nav-link @if(Request::is('home/properties') || Request::is('home/property/*')) active @endif"
+                                  href="/home/properties">
                                   <i class="fa fa-home"></i>
                                   {{ __('Properties') }}
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/agents">
+                                <a
+                                  class="nav-link @if(Request::is('home/agents') || Request::is('home/agent/*')) active @endif"
+                                  href="/home/agents">
                                   <i class="fa fa-user"></i>
                                   {{ __('Agents') }}
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/testemonials">
+                                <a
+                                  class="nav-link @if(Request::is('home/testemonials') || Request::is('home/testemonial/*')) active @endif"
+                                  href="/home/testemonials">
                                   <i class="fa fa-child "></i>
                                   {{ __('Testemonials') }}
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/add-property">
+                                <a
+                                  class="nav-link @if(Request::is('home/add-property')) active @endif"
+                                  href="/home/add-property">
                                   <i class="fa fa-plus" aria-hidden="true"></i>
                                   {{ __('Add Property') }}
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/add-agent">
+                                <a
+                                  class="nav-link @if(Request::is('home/add-agent')) active @endif"
+                                  href="/home/add-agent">
                                   <i class="fa fa-plus" aria-hidden="true"></i>
                                   {{ __('Add Agent') }}
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link active" href="/home/add-testemonial">
+                                <a
+                                  class="nav-link @if(Request::is('home/add-testemonial')) active @endif"
+                                  href="/home/add-testemonial">
                                   <i class="fa fa-plus" aria-hidden="true"></i>
                                   {{ __('Add Testemonial') }}
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a
+                                  class="nav-link @if(Request::is('home/about')) active @endif"
+                                  href="/home/about">
+                                  <i class="fa fa-edit" aria-hidden="true"></i>
+                                  {{ __('About') }}
                                 </a>
                             </li>
                         </ul>

@@ -18,6 +18,7 @@ use App\Http\Controllers\UpdateAgentController;
 use App\Http\Controllers\DeleteAgentController;
 use App\Http\Controllers\AddAgentController;
 use App\Http\Controllers\TestemonialController;
+use App\Http\Controllers\DashboardAboutController;
 use Illuminate\Http\Request;
 
 /*
@@ -63,6 +64,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::get('/add-testemonial', [TestemonialController::class, 'addTestemonialView']);
     Route::post('/testemonial', [TestemonialController::class, 'addTestemonial']);
     Route::delete('/testemonial', [TestemonialController::class, 'deleteTestemonial']);
+    Route::get('/about', [DashboardAboutController::class, 'aboutView']);
+    Route::post('/about', [DashboardAboutController::class, 'updateOrCreateAbout']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {
