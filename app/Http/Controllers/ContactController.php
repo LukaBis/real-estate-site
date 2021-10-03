@@ -41,7 +41,7 @@ class ContactController extends Controller
         ];
 
         return view('contact', [
-          'contact'   => $contact[0],
+          'contact'   => $contact,
           'languages' => $languages,
           'filters'   => $filters
         ]);

@@ -14,12 +14,14 @@
             </p>
           </div>
           <div class="w-footer-a">
+            @if(count($contact))
             <ul class="list-unstyled">
               <li class="color-a">
-                <span class="color-text-a">{{ __('Email') }} .</span> {{ $contact->email }}</li>
+                <span class="color-text-a">{{ __('Email') }} .</span> {{ $contact[0]->email }}</li>
               <li class="color-a">
-                <span class="color-text-a">{{ __('Phone') }} .</span> {{ $contact->phone }}</li>
+                <span class="color-text-a">{{ __('Phone') }} .</span> {{ $contact[0]->phone }}</li>
             </ul>
+            @endif
           </div>
         </div>
       </div>

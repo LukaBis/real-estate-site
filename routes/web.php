@@ -19,6 +19,7 @@ use App\Http\Controllers\DeleteAgentController;
 use App\Http\Controllers\AddAgentController;
 use App\Http\Controllers\TestemonialController;
 use App\Http\Controllers\DashboardAboutController;
+use App\Http\Controllers\DashboardContactController;
 use Illuminate\Http\Request;
 
 /*
@@ -66,6 +67,8 @@ Route::group(['prefix' => 'home', 'middleware' => 'verified'], function() {
     Route::delete('/testemonial', [TestemonialController::class, 'deleteTestemonial']);
     Route::get('/about', [DashboardAboutController::class, 'aboutView']);
     Route::post('/about', [DashboardAboutController::class, 'updateOrCreateAbout']);
+    Route::get('/contact', [DashboardContactController::class, 'contactView']);
+    Route::post('/contact', [DashboardContactController::class, 'updateOrCreateContact']);
 });
 
 Route::group(['prefix' => '{locale}', 'middleware' => 'setlocale'], function() {

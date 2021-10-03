@@ -125,6 +125,14 @@
                                   {{ __('About') }}
                                 </a>
                             </li>
+                            <li class="nav-item ">
+                                <a
+                                  class="nav-link @if(Request::is('home/contact')) active @endif"
+                                  href="/home/contact">
+                                  <i class="fa fa-edit" aria-hidden="true"></i>
+                                  {{ __('Contact') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </nav>

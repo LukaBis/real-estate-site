@@ -23,7 +23,7 @@ class ContactsSeeder extends Seeder
     {
         $contactInfo = [
           "email"        => "estateagency@email.com",
-          "phone"        => "+54 356 945234",
+          "phone"        => "54356945234",
           "city"         => "New York",
           "street_name"  => "7th Ave",
           "house_number" => "10036"

@@ -56,14 +56,16 @@
                 <div class="icon-box-title">
                   <h4 class="icon-title">{{ __('Say Hello') }}</h4>
                 </div>
+                @if(count($contact))
                 <div class="icon-box-content">
                   <p class="mb-1">{{ __('Email') }}.
-                    <span class="color-a">{{ $contact->email }}</span>
+                    <span class="color-a">{{ $contact[0]->email }}</span>
                   </p>
                   <p class="mb-1">{{ __('Phone') }}.
-                    <span class="color-a">{{ $contact->phone }}</span>
+                    <span class="color-a">{{ $contact[0]->phone }}</span>
                   </p>
                 </div>
+                @endif
               </div>
             </div>
             <div class="icon-box section-b2">
@@ -75,9 +77,11 @@
                   <h4 class="icon-title">{{ __('Find us in') }}</h4>
                 </div>
                 <div class="icon-box-content">
+                  @if(count($contact))
                   <p class="mb-1">
-                    {{ $contact->city.','.$contact->street_name.' '.$contact->house_number }}
+                    {{ $contact[0]->city.','.$contact[0]->street_name.' '.$contact[0]->house_number }}
                   </p>
+                  @endif
                 </div>
               </div>
             </div>
