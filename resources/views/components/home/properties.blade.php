@@ -8,7 +8,7 @@
             <h2 class="title-a">{{ __('Latest Properties') }}</h2>
           </div>
           <div class="title-link">
-            <a href="property-grid.html">{{ __('All Property') }}
+            <a href="/{{ app()->currentLocale() }}/properties">{{ __('All Property') }}
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
