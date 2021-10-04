@@ -59,7 +59,7 @@ class SearchController extends Controller
           'languages'             => $languages,
           'filters'               => $filters,
           'properties'            => $properties,
-          'contact'               => $contact[0],
+          'contact'               => $contact,
         ]);
     }
 }

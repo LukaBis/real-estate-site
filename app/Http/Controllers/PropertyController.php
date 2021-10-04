@@ -58,7 +58,7 @@ class PropertyController extends Controller
           'properties'            => $properties,
           'statuses'              => $statuses,
           'current_status_filter' => $request->status,
-          'contact'               => $contact[0],
+          'contact'               => $contact,
           'filters'               => $filters
         ]);
     }
@@ -84,7 +84,7 @@ class PropertyController extends Controller
         return view('single-property', [
           'languages' => $languages,
           'property'  => $property,
-          'contact'   => $contact[0],
+          'contact'   => $contact,
           'filters'   => $filters
         ]);
     }

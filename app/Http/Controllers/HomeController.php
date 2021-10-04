@@ -66,7 +66,7 @@ class HomeController extends Controller
           'properties'   => $properties,
           'agents'       => $agents,
           'testemonials' => $testemonials,
-          'contact'      => $contact[0],
+          'contact'      => $contact,
           'filters'      => $filters
         ]);
     }

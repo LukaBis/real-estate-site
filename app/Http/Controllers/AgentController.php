@@ -49,7 +49,7 @@ class AgentController extends Controller
         return view('agents',[
           'languages' => $languages,
           'agents'    => $agents,
-          'contact'   => $contact[0],
+          'contact'   => $contact,
           'filters'   => $filters
         ]);
     }
@@ -75,7 +75,7 @@ class AgentController extends Controller
         return view('single-agent',[
           'languages' => $languages,
           'agent'     => $agent,
-          'contact'   => $contact[0],
+          'contact'   => $contact,
           'filters'   => $filters
         ]);
     }

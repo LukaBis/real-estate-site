@@ -62,7 +62,7 @@ class AboutController extends Controller
           'languages' => $languages,
           'agents'    => $agents,
           'about'     => $about,
-          'contact'   => $contact[0],
+          'contact'   => $contact,
           'filters'   => $filters
         ]);
     }
