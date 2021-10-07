@@ -35,7 +35,7 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 ![image that shows filter option](https://github.com/LukaBis/ReadmeImages/blob/main/filter.png?raw=true)
 
-<p><b>Connection between agents and properties.</b> Each <b>agent is responsible for multiple of properties</b>(in some cases its 3 properties, sometimes just one, sometimes none).</p>
+<p><b>Connection between agents and properties.</b> Each <b>agent is responsible for multiple properties</b>(in some cases its 3 properties, sometimes just one, sometimes none).</p>
 
 <p>When you click on agent and you see all data about to that agent, at the bottom of the page you will see all properties that belong to that agent.</p>
 
@@ -59,10 +59,12 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>This page allows you to see and modify some property data. You can change street name, number of beds, property's agent, property's status (active/sold). You can also change property's amenities etc.</p>
 
-<p>Each property has one vertical image. Vertical image is displayed on property-grid. (list of <i>all</i> properties). Property has only one vertical image, but multiple horizontal images that are displayed in carousel.</p>
+<p>Each property has one vertical image. Vertical image is displayed on property-grid (list of <i>all</i> properties). Property has only one vertical image, but multiple horizontal images that are displayed in carousel.</p>
 
 <p>CMS allows you to change vertical image. It also allows you to delete or add horizontal images. Each image file upload has recommended image sizes:</p>
 
 ![image size](https://github.com/LukaBis/ReadmeImages/blob/main/imagesizeCircuit.png?raw=true)
 
 <p>If you want to add new property, you have to click on Add Property and fill the form. You also have to add images of that property and then click "Save property".</p>
+
+<p>Licensed under the [MIT License](LICENSE)</p>
