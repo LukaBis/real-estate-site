@@ -1,64 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Real Estate Agency Website</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h3>Description</h3>
 
-## About Laravel
+<p>This is a website for real estate agency. It could be used to display multiple
+real estate properties, testimonials, real estate agents, contact info, about page etc.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p>It has support for two languages: English and Croatian.</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p>This website also has a CMS system. So admin can log-in and change the content of the site. Using CMS admin can add/edit/delete properties, agents, testimonials and contact information.</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>Here is a link to <a href="#">DEMO</a>. Unfortunately, you can't access CMS on live demo because anyone could potentially change something on the website and add something inappropriate. If you want to see CMS you will have to install project locally.</p>
 
-## Learning Laravel
+<p>On home page, you can see property images in carousel, services that agency provides, few properties, agents and testimonials. There are separate pages for list of all properties and agents.</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p>You also have an option to filter all properties based on multiple factors like: number of beds, city, price etc. <i>(If you try to filter this results on the demo I recommend to choose maximum of 2 options because if you choose more options you will probably get no results since there are only 10 properties in the database)</i></p>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p>I used Laravel framework to build this website. I also used HTML, CSS, jQuery, Bootstrap. Laravel translatable package was used to make site support multiple languages.</p>
 
-## Laravel Sponsors
+<h3>How to use this website</h3>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<p>This section has two parts. First part explains how to use the website (this part will be shot because most things are self explanatory) and the second part explains how to use the CMS.</p>
 
-### Premium Partners
+<h4>Website</h4>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+<p>In this section I will only mention how to use filter functionality and relation between agents and properties. Other things on the website are obvious and not worth explaining.</p>
 
-## Contributing
+<p><b>Filter properties.</b> When you go to see list of all properties by clicking on the property link in navigation bar, you will see 6 properties on each page. Above those images you will see an option to select All, Active or Sold.</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![image that shows filter option](https://github.com/LukaBis/ReadmeImages/blob/main/SmallFilterCircle.png?raw=true)
 
-## Code of Conduct
+<p>Each property can have one of two statuses: active or sold. If you click Active, only active properties will be shown. In case you click Sold, only sold properties will be shown. Otherwise you will see all properties.</p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h4>CMS</h4>
