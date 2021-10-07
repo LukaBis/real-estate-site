@@ -31,4 +31,8 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>Each property can have one of two statuses: active or sold. If you click Active, only active properties will be shown. In case you click Sold, only sold properties will be shown. Otherwise you will see all properties.</p>
 
+<p>If you click on search icon in navigation bar you will see a search form. It enables you to search properties based on multiple filter-options.</p>
+
+![image that shows filter option](https://github.com/LukaBis/ReadmeImages/blob/main/filter.png?raw=true)
+
 <h4>CMS</h4>
