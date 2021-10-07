@@ -67,4 +67,4 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>If you want to add new property, you have to click on Add Property and fill the form. You also have to add images of that property and then click "Save property".</p>
 
-<p>Licensed under the [MIT License](https://github.com/LukaBis/real-estate-site/blob/main/LICENSE)</p>
+<p>Licensed under the <a href="https://github.com/LukaBis/real-estate-site/blob/main/LICENSE">MIT License</a></p>
