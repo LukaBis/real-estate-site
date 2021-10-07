@@ -41,4 +41,28 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 ![agent's properties](https://github.com/LukaBis/ReadmeImages/blob/main/agents_properties.png?raw=true)
 
+<p>When you click on property and see all data about some property, at the bottom of the page you will see agent that is responsible for that property.</p>
+
 <h4>CMS</h4>
+
+<p>CMS is used by the admin of the site. He/she can change contact information, content of the about-page. CMS also allows you to add, edit or delete properties, agents and testimonials.</p>
+
+<p>If you cloned the project to your local machine and you want to use CMS, password is 123456789 and email is admin@email.com . You can access CMS by going to <b>/login</b> route or just click Admin link in the footer.</p>
+
+![cms](https://github.com/LukaBis/ReadmeImages/blob/main/cms.png?raw=true)
+
+<p>The way you work with property data is very similar to the way you would manipulate agent data, testimonial data, contact data etc. So I will only breakdown how to add/edit/delete properties and the rest is very similar.</p>
+
+<p>So when you click on <b>properties</b>, you will see a table of properties and property data. Last column contains a link to a page that displays single property. It looks like this</p>
+
+![single property](https://github.com/LukaBis/ReadmeImages/blob/main/single.png?raw=true)
+
+<p>This page allows you to see and modify some property data. You can change street name, number of beds, property's agent, property's status (active/sold). You can also change property's amenities etc.</p>
+
+<p>Each property has one vertical image. Vertical image is displayed on property-grid. (list of <i>all</i> properties). Property has only one vertical image, but multiple horizontal images that are displayed in carousel.</p>
+
+<p>CMS allows you to change vertical image. It also allows you to delete or add horizontal images. Each image file upload has recommended image sizes:</p>
+
+![image size](https://github.com/LukaBis/ReadmeImages/blob/main/imagesizeCircuit.png?raw=true)
+
+<p>If you want to add new property, you have to click on Add Property and fill the form. You also have to add images of that property and then click "Save property".</p>
