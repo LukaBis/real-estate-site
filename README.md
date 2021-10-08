@@ -2,9 +2,9 @@
 <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
 
 ##### Table of Contents  
--  [1. Installation](#instalation)  
--  [2. Description](#description)
--  [3. HowTo](#HowTo)
+- [1.Installation](#instalation)  
+- [2.Description](#description)
+- [3.HowTo](#HowTo)
   * [3.1 website](#website)
   * [3.2 cms](#cms)
 
