@@ -1,5 +1,5 @@
 <h1>Real Estate Agency Website</h1>
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/LukaBis/real-estate-site/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <h3>Description</h3>
 
