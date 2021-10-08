@@ -2,11 +2,11 @@
 <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
 
 ##### Table of Contents  
-[Installation](#instalation)  
-[Description](#description)
-[HowTo](#HowTo)
--[website](#website)
--[cms](#cms)
+-[Installation](#instalation)  
+-[Description](#description)
+-[HowTo](#HowTo)
+  * [website](#website)
+  * [cms](#cms)
 
 <a name="instalation"/>
 <h3>Installation</h3>
