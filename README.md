@@ -69,3 +69,11 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 <p>If you want to add new property, you have to click on Add Property and fill the form. You also have to add images of that property and then click "Save property".</p>
 
 <p>Licensed under the <a href="https://github.com/LukaBis/real-estate-site/blob/main/LICENSE">MIT License</a></p>
+
+<h3>Installation</h3>
+
+<p>Please check the official laravel installation guide for server requirements before you start. <a href="https://laravel.com/docs/8.x/installation">Official Documentation</a></p>
+
+<p>Clone the repository</p>
+
+```gh repo clone LukaBis/real-estate-site```
