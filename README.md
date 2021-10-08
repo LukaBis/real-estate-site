@@ -3,7 +3,10 @@
 
 ##### Table of Contents  
 [Installation](#instalation)  
-[Emphasis](#emphasis)
+[Description](#description)
+[HowTo](#HowTo)
+----[website](#website)
+----[cms](#cms)
 
 <a name="instalation"/>
 <h3>Installation</h3>
@@ -67,6 +70,7 @@ php artisan serve
 
 <p>You can now access the server at http://localhost:8000</p>
 
+<a name="description"/>
 <h3>Description</h3>
 
 <p>This is a website for real estate agency. It could be used to display multiple
@@ -84,6 +88,7 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>I used Laravel framework to build this website. I also used HTML, CSS, jQuery, Bootstrap. Laravel translatable package was used to make site support multiple languages.</p>
 
+<a name="HowTo"></a>
 <h3>How to use this website</h3>
 
 <p>This section has two parts. First part explains how to use the website (this part will be shot because most things are self explanatory) and the second part explains how to use the CMS.</p>
