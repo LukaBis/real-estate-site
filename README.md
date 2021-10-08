@@ -1,6 +1,72 @@
 <h1>Real Estate Agency Website</h1>
 <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
 
+##### Table of Contents  
+[Installation](#instalation)  
+[Emphasis](#emphasis)
+
+<a name="installation"></a>
+<h3>Installation</h3>
+
+<p>Please check the official laravel installation guide for server requirements before you start. <a href="https://laravel.com/docs/8.x/installation">Official Documentation</a></p>
+
+<p>Laravel 8 requires PHP 7.3+ or above so you need this version or the latest version of PHP installed on your system.</p>
+
+<p>Clone the repository</p>
+
+```
+gh repo clone LukaBis/real-estate-site
+```
+<p>Switch to the repo folder</p>
+
+```
+cd real-estate-site
+```
+
+<p>Install all the dependencies using composer</p>
+
+```
+composer install
+```
+
+<p>Copy the example env file and make the required configuration changes in the .env file</p>
+
+```
+cp .env.example .env
+```
+
+<p>Generate a new application key</p>
+
+```
+php artisan key:generate
+```
+
+<p>Run the database migrations <b>(Set the database connection in .env before migrating)</b></p>
+
+```
+php artisan migrate
+```
+
+<p>Run the database seeder</p>
+
+```
+php artisan db:seed
+```
+
+<p>Create the symbolic link</p>
+
+```
+php artisan storage:link
+```
+
+<p>Start the local development server</p>
+
+```
+php artisan serve
+```
+
+<p>You can now access the server at http://localhost:8000</p>
+
 <h3>Description</h3>
 
 <p>This is a website for real estate agency. It could be used to display multiple
@@ -69,64 +135,3 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 <p>If you want to add new property, you have to click on Add Property and fill the form. You also have to add images of that property and then click "Save property".</p>
 
 <p>Licensed under the <a href="https://github.com/LukaBis/real-estate-site/blob/main/LICENSE">MIT License</a></p>
-
-<h3>Installation</h3>
-
-<p>Please check the official laravel installation guide for server requirements before you start. <a href="https://laravel.com/docs/8.x/installation">Official Documentation</a></p>
-
-<p>Laravel 8 requires PHP 7.3+ or above so you need this version or the latest version of PHP installed on your system.</p>
-
-<p>Clone the repository</p>
-
-```
-gh repo clone LukaBis/real-estate-site
-```
-<p>Switch to the repo folder</p>
-
-```
-cd real-estate-site
-```
-
-<p>Install all the dependencies using composer</p>
-
-```
-composer install
-```
-
-<p>Copy the example env file and make the required configuration changes in the .env file</p>
-
-```
-cp .env.example .env
-```
-
-<p>Generate a new application key</p>
-
-```
-php artisan key:generate
-```
-
-<p>Run the database migrations <b>(Set the database connection in .env before migrating)</b></p>
-
-```
-php artisan migrate
-```
-
-<p>Run the database seeder</p>
-
-```
-php artisan db:seed
-```
-
-<p>Create the symbolic link</p>
-
-```
-php artisan storage:link
-```
-
-<p>Start the local development server</p>
-
-```
-php artisan serve
-```
-
-<p>You can now access the server at http://localhost:8000</p>
