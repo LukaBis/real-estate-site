@@ -2,11 +2,11 @@
 <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
 
 ##### Table of Contents  
--[Installation](#instalation)  
--[Description](#description)
--[HowTo](#HowTo)
-  * [website](#website)
-  * [cms](#cms)
+-  [1. Installation](#instalation)  
+-  [2. Description](#description)
+-  [3. HowTo](#HowTo)
+  * [3.1 website](#website)
+  * [3.2 cms](#cms)
 
 <a name="instalation"/>
 <h3>Installation</h3>
@@ -93,6 +93,7 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>This section has two parts. First part explains how to use the website (this part will be shot because most things are self explanatory) and the second part explains how to use the CMS.</p>
 
+<a name="website"></a>
 <h4>Website</h4>
 
 <p>In this section I will only mention how to use filter functionality and relation between agents and properties. Other things on the website are obvious and not worth explaining.</p>
@@ -115,6 +116,7 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>When you click on property and see all data about some property, at the bottom of the page you will see agent that is responsible for that property.</p>
 
+<a name="cms"></a>
 <h4>CMS</h4>
 
 <p>CMS is used by the admin of the site. He/she can change contact information, content of the about-page. CMS also allows you to add, edit or delete properties, agents and testimonials.</p>
