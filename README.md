@@ -1,4 +1,5 @@
 <h1>Real Estate Agency Website</h1>
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
 <h3>Description</h3>
 
