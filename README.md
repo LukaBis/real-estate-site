@@ -18,7 +18,7 @@
 <p>Clone the repository</p>
 
 ```
-gh repo clone LukaBis/real-estate-site
+git clone https://github.com/LukaBis/real-estate-site.git
 ```
 <p>Switch to the repo folder</p>
 
@@ -34,8 +34,15 @@ composer install
 
 <p>Copy the example env file and make the required configuration changes in the .env file</p>
 
+<p>Linux</p>
+
 ```
 cp .env.example .env
+```
+<p>Windows</p>
+
+```
+copy .env.example .env
 ```
 
 <p>Generate a new application key</p>
@@ -57,6 +64,12 @@ php artisan db:seed
 ```
 
 <p>Create the symbolic link</p>
+
+```
+php artisan storage:link
+```
+
+<p>Check images folder that is inside inside public. Delete images folder if there are no images (image files) in sub-folders of images folder. Then create new, empty images folder. and run:</p>
 
 ```
 php artisan storage:link
