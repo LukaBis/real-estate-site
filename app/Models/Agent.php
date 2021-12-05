@@ -34,7 +34,7 @@ class Agent extends Model
 
     public function shortAbout()
     {
-        if (strlen($this->about >= 90)) {
+        if (strlen($this->about) >= 90) {
           return substr($this->about, 0, 90);
         } else {
           return $this->about;
