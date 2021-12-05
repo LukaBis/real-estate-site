@@ -93,7 +93,7 @@ real estate properties, testimonials, real estate agents, contact info, about pa
 
 <p>This website also has a CMS system. So admin can log-in and change the content of the site. Using CMS admin can add/edit/delete properties, agents, testimonials and contact information.</p>
 
-<p>Here is a link to <a href="#">DEMO</a>. Unfortunately, you can't access CMS on live demo because anyone could potentially change something on the website and add something inappropriate. If you want to see CMS you will have to install project locally.</p>
+<p>Here is a link to <a href="http://real-estate-site.lukabiskupic.com">DEMO</a>. Unfortunately, you can't access CMS on live demo because anyone could potentially change something on the website and add something inappropriate. If you want to see CMS you will have to install project locally.</p>
 
 <p>On home page, you can see property images in carousel, services that agency provides, few properties, agents and testimonials. There are separate pages for list of all properties and agents.</p>
 
